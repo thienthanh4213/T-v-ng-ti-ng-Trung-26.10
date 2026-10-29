@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiếng Trung 26.10 — Vocab List 7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#b3261e; --primary-dark:#8f1d17; --primary-light:#f7e3df;
+  --green:#059669;
+  --bg:#f6f1e7; --card-bg:#fffdf8; --text:#2b2420; --text-muted:#7a6e64;
+  --border:#e4d9c8; --correct:#10b981; --incorrect:#ef4444; --warn:#d97706;
+  --font:'Outfit','Segoe UI',Arial,sans-serif;
+  --zh:'Noto Sans SC','Microsoft YaHei','PingFang SC',sans-serif;
+  --shadow:0 10px 25px -5px rgba(60,40,20,.08),0 8px 10px -6px rgba(60,40,20,.06);
+  --radius:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#1c1917;--card-bg:#28231f;--text:#f3ece2;--text-muted:#a89c90;--border:#3d3530;--primary-light:rgba(179,38,30,.22);}
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;}
+.site-header{background:var(--primary);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);}
+.unit-byline{font-size:.75rem;opacity:.75;margin-bottom:3px;}
+.unit-title{font-size:1.2rem;font-weight:700;line-height:1.2;}
+.timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.35rem;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:9999px;padding:4px 16px;min-width:104px;text-align:center;}
+main{max-width:760px;margin:0 auto;padding:24px 16px 120px;}
+.intro{color:var(--text-muted);font-size:.93rem;margin-bottom:18px;line-height:1.6;}
+.intro b{color:var(--text);}
+.student-bar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:18px;box-shadow:var(--shadow);}
+.student-bar .lbl{font-weight:700;font-size:.9rem;}
+.btn{font-family:var(--font);font-weight:700;font-size:.95rem;border:none;border-radius:12px;padding:11px 22px;cursor:pointer;background:var(--primary);color:#fff;transition:.2s;text-decoration:none;display:inline-block;}
+.btn:hover{background:var(--primary-dark);}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn.ghost{background:transparent;color:var(--primary);border:1.5px solid var(--primary);}
+.btn.ghost:hover{background:var(--primary-light);}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:6px 20px;box-shadow:var(--shadow);}
+.card.locked{opacity:.45;pointer-events:none;filter:blur(3px);user-select:none;}
+.q{display:grid;grid-template-columns:34px 1fr;gap:4px 10px;padding:14px 0;border-top:1px dashed var(--border);align-items:center;}
+.q:first-child{border-top:none;}
+.qnum{font-weight:800;color:var(--primary);}
+.prompt{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:1rem;}
+.vi{font-weight:600;}
+.pos{font-size:.78rem;font-weight:700;padding:2px 9px;border-radius:9999px;background:var(--primary-light);color:var(--primary-dark);font-style:italic;}
+@media (prefers-color-scheme: dark){.pos{color:#f2b3ab;}}
+.ans{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;}
+input.gap{font-family:var(--zh);font-size:1.05rem;font-weight:600;color:var(--primary-dark);background:transparent;border:none;border-bottom:2px solid var(--primary);width:240px;max-width:100%;padding:4px 6px;}
+@media (prefers-color-scheme: dark){input.gap{color:#f2b3ab;}}
+input.gap:focus{outline:none;background:var(--primary-light);}
+input.gap.correct{border-color:var(--correct);color:var(--correct);}
+input.gap.incorrect{border-color:var(--incorrect);color:var(--incorrect);text-decoration:line-through;}
+input.gap.unanswered{border-color:var(--warn);background:rgba(217,119,6,.08);}
+.key{display:none;font-size:1rem;color:var(--green);font-weight:700;font-family:var(--zh);}
+.key .ipa{font-family:var(--font);font-weight:400;font-style:italic;color:var(--text-muted);margin-left:6px;}
+.key.show{display:inline;}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px;}
+.warn{display:none;color:var(--incorrect);font-size:.86rem;font-weight:700;}
+.result{display:none;margin-top:20px;background:var(--card-bg);border:2px solid var(--primary);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);}
+.result.show{display:block;}
+.big{font-size:1.9rem;font-weight:800;color:var(--primary);}
+.sub{color:var(--text-muted);font-size:.92rem;margin-top:4px;}
+.after{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.navrow{display:flex;justify-content:space-between;gap:10px;margin-top:26px;font-size:.9rem;}
+.nav-a{color:var(--primary);font-weight:700;text-decoration:none;}
+footer{text-align:center;color:var(--text-muted);font-size:.78rem;margin-top:30px;}
+@media (max-width:520px){.unit-title{font-size:1.02rem;} .timer{font-size:1.15rem;min-width:88px;} input.gap{width:100%;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <div class="unit-byline">Tiếng Trung · Từ vựng 26.10 · Kiểm tra</div>
+    <div class="unit-title">List 7/23 — Nghĩa → Từ</div>
+  </div>
+  <div class="timer" id="timer" title="Thời gian đã làm (không giới hạn)">⏱ 00:00</div>
+</header>
+
+<main>
+  <p class="intro">Đọc <b>nghĩa tiếng Việt</b> và <b>từ loại</b>, rồi gõ <b>từ tiếng Trung</b> tương ứng — gõ <b>chữ Hán</b> hoặc <b>pinyin</b> đều được (có hay không dấu thanh đều tính đúng).
+  Có <b>10 câu</b>, <b>không giới hạn thời gian</b> — đồng hồ chỉ để bạn biết mình làm mất bao lâu. Với cấu trúc có “…”, chỉ cần gõ các chữ cố định (vd: 为而).</p>
+
+  <div class="student-bar">
+    <span class="lbl">📝 Sẵn sàng chưa?</span>
+    <button class="btn" id="startBtn" type="button">▶ Bắt đầu làm bài</button>
+  </div>
+
+  <div class="card locked" id="quiz"></div>
+
+  <div class="actions">
+    <button class="btn" id="submitBtn" type="button" disabled>📤 Nộp bài</button>
+    <span class="warn" id="blankWarn"></span>
+  </div>
+
+  <div class="result" id="result">
+    <div class="big" id="scoreBig"></div>
+    <div class="sub" id="scoreSub"></div>
+    <div class="after">
+      <button class="btn" type="button" onclick="location.reload()">🔁 Làm lại</button>
+      <a class="btn ghost" href="index.html">📋 Mục lục</a>
+    </div>
+  </div>
+
+  <div class="navrow"><span><a class="nav-a" href="zh-2610-vocab-list-06-kiem-tra-nghia.html">← List 6</a></span><span><a class="nav-a" href="zh-2610-vocab-list-08-kiem-tra-nghia.html">List 8 →</a></span></div>
+  <footer>Từ vựng tiếng Trung · 26.10</footer>
+</main>
+
+<script>
+/* 10 từ cố định (no = STT gốc); thứ tự hiển thị xáo mỗi lần mở. a = chữ Hán, py = pinyin, alt = đáp án chấp nhận thêm */
+const ITEMS=[
+ {
+  "no": 1,
+  "vi": "cấm",
+  "pos": "v.",
+  "a": "禁止",
+  "py": "jìnzhǐ",
+  "alt": []
+ },
+ {
+  "no": 2,
+  "vi": "kéo gần lại",
+  "pos": "v.",
+  "a": "拉近",
+  "py": "lājìn",
+  "alt": [
+   "拉近了"
+  ]
+ },
+ {
+  "no": 3,
+  "vi": "khoảng cách",
+  "pos": "n.",
+  "a": "距离",
+  "py": "jùlí",
+  "alt": []
+ },
+ {
+  "no": 4,
+  "vi": "tiêm",
+  "pos": "v.",
+  "a": "打针",
+  "py": "dǎzhēn",
+  "alt": []
+ },
+ {
+  "no": 5,
+  "vi": "uống thuốc",
+  "pos": "v.",
+  "a": "吃药",
+  "py": "chī yào",
+  "alt": []
+ },
+ {
+  "no": 6,
+  "vi": "phù hợp, đáp ứng",
+  "pos": "v.",
+  "a": "符合",
+  "py": "fúhé",
+  "alt": []
+ },
+ {
+  "no": 7,
+  "vi": "hoàn toàn",
+  "pos": "adv.",
+  "a": "完全",
+  "py": "wánquán",
+  "alt": []
+ },
+ {
+  "no": 8,
+  "vi": "pháp luật",
+  "pos": "n.",
+  "a": "法律",
+  "py": "fǎlǜ",
+  "alt": []
+ },
+ {
+  "no": 9,
+  "vi": "quy định",
+  "pos": "n./v.",
+  "a": "规定",
+  "py": "guīdìng",
+  "alt": []
+ },
+ {
+  "no": 10,
+  "vi": "tiếp tục",
+  "pos": "v.",
+  "a": "继续",
+  "py": "jìxù",
+  "alt": []
+ }
+];
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const order=shuffle(ITEMS.slice());
+// Chữ Hán: bỏ khoảng trắng, dấu câu, "…"
+const normZh=s=>(s||'').replace(/[\s…\.。，,、！!？?；;：:“”"'‘’（）()\-–—~·]/g,'');
+// Pinyin: bỏ dấu thanh, số thanh, ü→u, chỉ giữ chữ cái
+const normPy=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/ü|v/g,'u').replace(/[^a-z]/g,'');
+function isRight(it,g){
+  if(!g.trim())return false;
+  const z=normZh(g); const p=normPy(g);
+  const zh=[it.a].concat(it.alt||[]).map(normZh);
+  if(z&&zh.includes(z))return true;
+  return p.length>0 && p===normPy(it.py);
+}
+const fmtTime=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+
+const quiz=document.getElementById('quiz');
+order.forEach((it,i)=>{
+  const q=document.createElement('div');q.className='q';
+  q.innerHTML=`<div class="qnum">${i+1}.</div>
+    <div class="prompt"><span class="vi"></span><span class="pos"></span></div>
+    <div class="ans"><input class="gap" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Câu ${i+1}" placeholder="chữ Hán / pinyin" disabled>
+    <span class="key">✔ <span class="zh"></span><span class="ipa"></span></span></div>`;
+  q.querySelector('.vi').textContent=it.vi; q.querySelector('.pos').textContent=it.pos;
+  q.querySelector('.key .zh').textContent=it.a; q.querySelector('.key .ipa').textContent=it.py;
+  it.el=q.querySelector('input');it.keyEl=q.querySelector('.key');
+  it.el.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();const n=order[i+1];if(n)n.el.focus();else document.getElementById('submitBtn').focus();}});
+  quiz.appendChild(q);
+});
+
+let started=false,done=false,t0=0,tick=null,confirmBlank=false;
+const timerEl=document.getElementById('timer');
+document.getElementById('startBtn').addEventListener('click',()=>{
+  started=true;t0=Date.now();
+  document.getElementById('startBtn').disabled=true;
+  quiz.classList.remove('locked');
+  order.forEach(it=>it.el.disabled=false);
+  document.getElementById('submitBtn').disabled=false;
+  order[0].el.focus();
+  tick=setInterval(()=>{timerEl.textContent='⏱ '+fmtTime(Math.floor((Date.now()-t0)/1000));},500);
+});
+document.getElementById('submitBtn').addEventListener('click',()=>{
+  const blanks=order.filter(it=>!it.el.value.trim()).length;
+  const w=document.getElementById('blankWarn');
+  if(blanks&&!confirmBlank){
+    confirmBlank=true;
+    w.textContent=`⚠️ Còn ${blanks} câu bỏ trống. Bấm "Nộp bài" lần nữa để nộp luôn.`;w.style.display='inline';return;
+  }
+  w.style.display='none';finish();
+});
+window.addEventListener('beforeunload',e=>{if(started&&!done){e.preventDefault();e.returnValue='';}});
+
+function finish(){
+  if(done)return;done=true;clearInterval(tick);
+  const sec=Math.round((Date.now()-t0)/1000);
+  timerEl.textContent='⏱ '+fmtTime(sec);
+  let correct=0;
+  order.forEach(it=>{
+    const g=it.el.value,ok=isRight(it,g);
+    it.el.disabled=true;
+    it.el.classList.add(!g.trim()?'unanswered':(ok?'correct':'incorrect'));
+    it.keyEl.classList.add('show');
+    if(ok)correct++;
+  });
+  document.getElementById('submitBtn').disabled=true;
+  const ten=Math.round(correct/ITEMS.length*100)/10;
+  document.getElementById('scoreBig').textContent=`${correct}/${ITEMS.length} câu · ${ten.toString().replace('.',',')} điểm`;
+  document.getElementById('scoreSub').textContent=`Thời gian làm: ${fmtTime(sec)}. Đáp án (chữ Hán + pinyin) hiện màu xanh bên cạnh mỗi câu.`;
+  try{const k='zh-2610-kt-best';const b=JSON.parse(localStorage.getItem(k)||'{}');if(b['7']==null||correct>b['7'])b['7']=correct;localStorage.setItem(k,JSON.stringify(b));}catch(e){}
+  const r=document.getElementById('result');r.classList.add('show');r.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body>
+</html>

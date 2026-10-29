@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#1D9E75" />
+<title>🎯 Từ vựng tiếng Trung – 26.10</title>
+<style>
+  :root{
+    --green:#1D9E75; --green-d:#158A63; --green-l:#E7F6F0;
+    --teal:#12B3A0;
+    --red:#E4574C; --red-l:#FCEBEA;
+    --ink:#1F2A28; --muted:#6B7A76; --bg:#F1F5F3;
+    --card:#FFFFFF; --line:#E3EAE7; --gold:#F4B740;
+    --grad:linear-gradient(135deg,#1D9E75,#12B3A0);
+    --grad-warm:linear-gradient(135deg,#F4B740,#F08A5D);
+    --glow:0 22px 45px -14px rgba(29,158,117,.32),0 4px 12px rgba(21,138,99,.08);
+    --page:radial-gradient(1100px 560px at 50% -12%,#E7F6F0 0%,#F1F5F3 55%);
+  }
+  [data-theme="dark"]{
+    --green:#25B487; --green-d:#5FD3AE; --green-l:#123329;
+    --teal:#2ED0BE;
+    --red:#F0736A; --red-l:#3A201E;
+    --ink:#EAF2EF; --muted:#9DB0AA; --bg:#0E1413;
+    --card:#18211F; --line:#28352F; --gold:#F4B740;
+    --grad:linear-gradient(135deg,#25B487,#2ED0BE);
+    --grad-warm:linear-gradient(135deg,#F4B740,#F0736A);
+    --glow:0 22px 48px -14px rgba(0,0,0,.55),0 4px 14px rgba(0,0,0,.35);
+    --page:radial-gradient(1100px 560px at 50% -12%,#14201C 0%,#0E1413 55%);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+    background:var(--page);background-attachment:fixed;color:var(--ink);
+    min-height:100dvh;display:flex;justify-content:center;padding:14px;
+    transition:background .25s,color .25s;
+  }
+  .layout{width:100%;max-width:700px;display:flex;align-items:flex-start;justify-content:center;gap:16px}
+  .app{width:100%;max-width:440px;flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}
+  :focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:8px}
+
+  /* Sidebar chủ đề — mỗi chủ đề 1 hàng, nằm bên trái */
+  .sidebar{
+    flex:none;width:220px;
+    display:flex;flex-direction:column;gap:6px;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:12px;position:sticky;top:14px;
+  }
+  .sidebar-label{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:2px 6px 6px}
+  .group-chip{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    border:1px solid var(--line);background:var(--bg);color:var(--muted);
+    font-family:inherit;font-weight:700;font-size:13px;text-align:left;
+    padding:10px 12px;border-radius:12px;cursor:pointer;
+  }
+  .group-chip .chip-label{overflow-wrap:anywhere}
+  .group-chip .cnt{flex:none;font-size:11px;font-weight:700;color:var(--muted);background:var(--card);padding:2px 8px;border-radius:999px}
+  .group-chip:active{transform:scale(.98)}
+  .group-chip.on{background:var(--green-l);border-color:var(--green);color:var(--green-d)}
+  .group-chip.on .cnt{background:#fff;color:var(--green-d)}
+
+  @media (max-width: 760px){
+    /* Không đủ chỗ cho cột trái + thẻ cạnh nhau: sidebar chủ đề xếp lên trên,
+       nhưng vẫn giữ mỗi chủ đề một hàng riêng (không gộp thành lưới ngang). */
+    .layout{flex-direction:column}
+    .sidebar{width:100%;position:static}
+  }
+
+  /* Header */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .title{font-size:20px;font-weight:800;line-height:1.2;letter-spacing:-.01em}
+  /* Icon (emoji) hiển thị nguyên màu — KHÔNG áp gradient-clip lên emoji, vì trình
+     duyệt sẽ tô phẳng glyph màu thành một khối đơn sắc trông giống lỗi. Gradient
+     chỉ áp cho phần chữ. */
+  .title-icon{margin-right:2px}
+  .title-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .title small{display:block;font-size:12px;font-weight:600;color:var(--muted)}
+  .btn-ghost{
+    border:1px solid var(--line);background:var(--card);color:var(--green-d);
+    font-family:inherit;font-weight:700;font-size:12px;
+    padding:8px 12px;border-radius:12px;cursor:pointer;white-space:nowrap;
+  }
+  .btn-ghost:active{transform:scale(.96)}
+  .icon-btn{
+    border:1px solid var(--line);background:var(--card);
+    width:38px;height:36px;border-radius:12px;cursor:pointer;font-size:16px;display:grid;place-items:center;
+  }
+  .icon-btn:active{transform:scale(.94)}
+
+  /* Stats */
+  .stats{
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:8px 10px;font-size:13px;font-weight:600;
+  }
+  .stat{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px}
+  .stat.ok{color:var(--green-d);background:var(--green-l)}
+  .stat.no{color:var(--red);background:var(--red-l)}
+  .stat.left{color:var(--muted);background:var(--bg)}
+  .dot{display:none}
+  .round{margin-left:auto;background:var(--green-l);color:var(--green-d);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+  .shuffle{background:none;border:none;font-family:inherit;font-weight:700;color:var(--green-d);cursor:pointer;font-size:13px;padding:4px}
+  .shuffle:active{transform:scale(.94)}
+
+  /* Progress */
+  .prog{height:6px;background:var(--line);border-radius:999px;overflow:hidden}
+  .prog > i{display:block;height:100%;background:var(--grad);width:0%;transition:width .35s ease}
+
+  /* Card scene */
+  .scene{position:relative;perspective:1400px;height:340px}
+  .swipe-hint{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+    font-size:20px;font-weight:800;color:#fff;padding:8px 16px;border-radius:14px;
+    opacity:0;pointer-events:none;transition:opacity .08s;
+  }
+  .swipe-hint.know{right:16px;background:var(--green)}
+  .swipe-hint.forget{left:16px;background:var(--red)}
+  .drag{position:absolute;inset:0;transition:transform .25s ease;will-change:transform;touch-action:pan-y}
+  .card{
+    position:relative;width:100%;height:100%;cursor:pointer;
+    transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .card.flip{transform:rotateY(180deg)}
+  .face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;
+    box-shadow:var(--glow);
+    display:flex;flex-direction:column;
+    padding:18px 24px 16px;text-align:center;
+  }
+  .face::before{content:"";position:absolute;top:0;left:0;right:0;height:6px}
+  .front::before{background:var(--grad)}
+  .back::before{background:var(--grad-warm)}
+  /* 3 vùng theo chiều dọc: kicker/tools ở trên, nội dung chính giữa (chiếm hết
+     khoảng trống còn lại để không để trống một mảng lớn giữa thẻ), chấm+gợi ý
+     ở dưới — không còn absolute nên chiều cao thẻ tự phân bổ đều. */
+  .face-top{display:flex;align-items:center;justify-content:space-between;min-height:38px}
+  .face .kicker{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .back{transform:rotateY(180deg)}
+  .face-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0}
+  .icon{font-size:44px;line-height:1;margin-bottom:8px}
+  .icon:empty{display:none;margin:0}
+  .word{font-size:42px;font-weight:800;line-height:1.12;letter-spacing:-.02em;word-break:break-word}
+  .pron{margin-top:6px;color:var(--muted);font-size:14px;font-weight:500}
+  .meaning{font-size:26px;font-weight:700;line-height:1.25;color:var(--ink)}
+  .example{margin-top:14px;font-size:14px;color:var(--muted);font-weight:500;font-style:italic;max-width:90%}
+  .example-vi{margin-top:4px;font-size:12px;color:var(--muted);font-weight:500;opacity:.8;max-width:90%}
+  .example-vi:empty{display:none;margin:0}
+  .example .ex-zh{display:block}
+  .example .ex-py{display:block;font-size:12.5px;font-style:normal;font-weight:600;color:var(--green-d);margin:1px 0 6px;letter-spacing:.01em}
+  .example .ex-py:last-child{margin-bottom:0}
+  .face-bottom{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .hint{font-size:12px;color:var(--muted);font-weight:600}
+  .dots{display:flex;gap:5px}
+  .dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+  .dots i.on{background:var(--green)}
+  .face-tools{display:flex;gap:6px}
+  .tool{border:1px solid var(--line);background:var(--card);border-radius:12px;width:38px;height:38px;font-size:16px;cursor:pointer;display:grid;place-items:center}
+  .tool:active{transform:scale(.9);background:var(--green-l)}
+
+  /* Controls */
+  .controls{display:grid;grid-template-columns:1fr 1.2fr 1.2fr 1fr;gap:8px}
+  .ctl{border:none;font-family:inherit;font-weight:700;font-size:14px;padding:14px 6px;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px}
+  .ctl:active{transform:translateY(1px) scale(.98)}
+  .ctl.nav{background:var(--card);border:1px solid var(--line);color:var(--ink)}
+  .ctl.forget{background:var(--red-l);color:var(--red)}
+  .ctl.know{background:var(--grad);color:#fff;box-shadow:0 8px 20px -4px rgba(29,158,117,.5)}
+  .ctl:disabled{opacity:.4;cursor:not-allowed}
+  .swipe-tip{text-align:center;font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+
+  /* Overlays */
+  .overlay{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px 22px;text-align:center}
+  .overlay .emoji{font-size:52px}
+  .overlay h2{margin:10px 0 6px;font-size:22px}
+  .overlay p{margin:0;color:var(--muted);font-weight:500}
+  .review-list{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0}
+  .chip{background:var(--red-l);color:var(--red);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600}
+  .btn-primary{margin-top:18px;background:var(--grad);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:16px;padding:14px 22px;border-radius:16px;cursor:pointer;width:100%;box-shadow:0 8px 20px -4px rgba(29,158,117,.45)}
+  .btn-primary:active{transform:scale(.98)}
+  .btn-outline{margin-top:10px;background:var(--card);color:var(--green-d);border:1px solid var(--green);font-family:inherit;font-weight:700;font-size:15px;padding:12px 22px;border-radius:16px;cursor:pointer;width:100%}
+  .btn-outline.danger{color:var(--red);border-color:var(--red)}
+  .hidden{display:none !important}
+
+  /* Modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(10,18,16,.55);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+  .modal{background:var(--card);width:100%;max-width:480px;border-radius:24px 24px 0 0;padding:20px;max-height:88dvh;overflow:auto}
+  .modal h3{margin:0 0 4px;font-size:18px}
+  .modal .sub{color:var(--muted);font-size:13px;font-weight:500;margin:0 0 14px}
+  .modal label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px}
+  .modal input,.modal textarea,.modal select{width:100%;font-family:inherit;font-size:15px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);resize:vertical}
+  .modal textarea{min-height:150px;line-height:1.5}
+  .modal input:focus,.modal textarea:focus,.modal select:focus{outline:none;border-color:var(--green)}
+  .row{display:flex;gap:8px}
+  #backExample,#backExampleVi{white-space:pre-line}
+  .cnt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 4px}
+  .cnt-grid button{font-family:inherit;font-size:15px;font-weight:700;padding:12px 0;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+  .cnt-grid button.on{border-color:var(--green);background:var(--green);color:#fff}
+  .count-note{font-size:12px;color:var(--muted);font-weight:600;margin-top:6px}
+  .seg{display:flex;gap:6px}
+  .seg button{flex:1;padding:10px 4px;border:1px solid var(--line);background:var(--card);border-radius:12px;font-family:inherit;font-weight:700;font-size:13px;color:var(--muted);cursor:pointer}
+  .seg button.on{background:var(--green-l);border-color:var(--green);color:var(--green-d)}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-weight:600;font-size:14px}
+  .switch{width:48px;height:28px;border-radius:999px;border:none;background:var(--line);position:relative;cursor:pointer;transition:.2s;flex:none}
+  .switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .switch.on{background:var(--green)} .switch.on::after{left:23px}
+
+  /* Hoạt ảnh thẻ mới xuất hiện + ăn mừng */
+  @keyframes cardIn{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+  .scene.enter .drag{animation:cardIn .32s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.05)}100%{transform:scale(1)}}
+  .scene.knowpop{animation:pop .34s ease}
+  .confetti{position:absolute;top:24%;left:50%;z-index:8;pointer-events:none}
+  .confetti i{position:absolute;width:9px;height:9px;border-radius:2px;opacity:0}
+  @keyframes conf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(var(--cr))}}
+
+  @media (prefers-reduced-motion: reduce){
+    .card,.drag,.prog>i,body,.switch,.switch::after{transition:none !important}
+    .scene.enter .drag,.scene.knowpop,.confetti i{animation:none !important}
+  }
+
+  /* ---------- Kiểm tra từ vựng (quiz trắc nghiệm, dùng chung DECK) ---------- */
+  .mode-toggle{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px}
+  .mode-btn{flex:1;border:none;background:none;font-family:inherit;font-weight:700;font-size:13px;color:var(--muted);padding:10px 6px;border-radius:12px;cursor:pointer}
+  .mode-btn.on{background:var(--grad);color:#fff}
+  .mode-btn:active{transform:scale(.97)}
+
+  .quiz-progress{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 12px;font-size:13px;font-weight:700;color:var(--muted)}
+  .quiz-progress .prog{flex:1;margin:0}
+  .quiz-score-live{color:var(--green-d);flex:none}
+  .quiz-submit-btn{
+    flex:none;border:1px solid var(--green);background:var(--green-l);color:var(--green-d);
+    font-family:inherit;font-weight:700;font-size:12px;padding:6px 10px;border-radius:10px;cursor:pointer;
+    white-space:nowrap;
+  }
+  .quiz-submit-btn:active{transform:scale(.95)}
+  .quiz-submit-btn:disabled{opacity:.4;cursor:not-allowed}
+  .quiz-partial-note{font-size:12px;color:var(--muted);font-weight:600;margin-top:-4px}
+
+  .quiz-card{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--glow);padding:26px 22px;text-align:center;margin-top:14px}
+  .quiz-icon{font-size:40px;line-height:1;margin-bottom:6px}
+  .quiz-icon:empty{display:none;margin:0}
+  .quiz-word{font-size:28px;font-weight:800;line-height:1.2;letter-spacing:-.01em;word-break:break-word}
+  .quiz-pron{margin-top:4px;color:var(--muted);font-size:14px;font-weight:500;margin-bottom:8px}
+  .quiz-hint{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .quiz-options{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .quiz-opt{display:flex;align-items:center;gap:10px;text-align:left;border:1.5px solid var(--line);background:var(--bg);border-radius:14px;padding:12px 14px;font-family:inherit;font-weight:600;font-size:14px;color:var(--ink);cursor:pointer}
+  .quiz-opt:active{transform:scale(.98)}
+  .quiz-opt-label{flex:none;width:24px;height:24px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--muted)}
+  .quiz-opt.correct{background:var(--green-l);border-color:var(--green);color:var(--green-d)}
+  .quiz-opt.correct .quiz-opt-label{background:var(--green);color:#fff;border-color:var(--green)}
+  .quiz-opt.wrong{background:var(--red-l);border-color:var(--red);color:var(--red)}
+  .quiz-opt.wrong .quiz-opt-label{background:var(--red);color:#fff;border-color:var(--red)}
+  .quiz-opt:disabled{cursor:default}
+  .quiz-feedback{margin-top:14px;font-weight:700;font-size:14px;min-height:20px}
+  .quiz-feedback.correct{color:var(--green-d)}
+  .quiz-feedback.wrong{color:var(--red)}
+  .quiz-footer{display:flex;justify-content:flex-end;margin-top:12px}
+  .quiz-next-btn{background:var(--grad);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:14px;padding:11px 20px;border-radius:14px;cursor:pointer}
+  .quiz-next-btn:active{transform:scale(.97)}
+  .quiz-result-score{font-size:2.2rem;font-weight:800;color:var(--green-d);margin:8px 0 2px}
+  .wm-footer{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);text-align:center;font-size:11px;color:var(--muted);opacity:.7}
+</style>
+</head>
+<body>
+<div class="layout">
+  <!-- Sidebar chủ đề (trái, mỗi chủ đề 1 hàng) — chỉ hiện khi thẻ có field 'group' -->
+  <aside class="sidebar hidden" id="groupSidebar"></aside>
+
+  <div class="app">
+  <!-- Header -->
+  <div class="top">
+    <div class="title" id="deckTitle"><span class="title-icon" id="titleIcon">🎯</span><span class="title-text" id="titleText">Flashcard</span><small id="deckSub">Tự soạn từ vựng</small></div>
+    <div class="row">
+      <button class="icon-btn" id="btnSettings" aria-label="Cài đặt">⚙️</button>
+    </div>
+  </div>
+
+  <!-- Chuyển chế độ: Ôn thẻ / Kiểm tra -->
+  <div class="mode-toggle" id="modeToggle">
+    <button type="button" class="mode-btn on" data-mode="study">🎴 Ôn thẻ</button>
+    <button type="button" class="mode-btn" data-mode="quiz">📝 Kiểm tra</button>
+  </div>
+
+  <!-- Stats (chỉ hiện ở chế độ Ôn thẻ) -->
+  <div id="statsBarWrap">
+  <div class="stats">
+    <span class="stat ok">✓ Nhớ: <b id="sKnow">0</b></span><span class="dot"></span>
+    <span class="stat no">✗ Quên: <b id="sForget">0</b></span><span class="dot"></span>
+    <span class="stat left">◎ Còn: <b id="sLeft">0</b></span>
+    <span class="round">Vòng <b id="sRound">1</b></span>
+    <button class="shuffle" id="btnShuffle">🔀 Trộn</button>
+  </div>
+  <div class="prog"><i id="progBar"></i></div>
+  </div>
+
+  <!-- Study view -->
+  <div id="studyView">
+    <div class="scene" id="scene">
+      <div class="swipe-hint forget" id="hintForget">😕 Quên</div>
+      <div class="swipe-hint know" id="hintKnow">✓ Nhớ</div>
+      <div class="drag" id="drag">
+        <div class="card" id="card">
+          <div class="face front">
+            <div class="face-top">
+              <div class="kicker" id="frontKicker">Từ vựng</div>
+              <div class="face-tools">
+                <button class="tool" id="btnSpeak" aria-label="Nghe phát âm">🔊</button>
+                <button class="tool" id="btnImage" aria-label="Xem hình gợi ý">🖼️</button>
+              </div>
+            </div>
+            <div class="face-body">
+              <div class="icon" id="frontIcon"></div>
+              <div class="word" id="frontWord">—</div>
+              <div class="pron" id="frontPron"></div>
+            </div>
+            <div class="face-bottom">
+              <div class="dots" id="frontDots"></div>
+              <div class="hint">👆 Nhấn để lật · ↔ vuốt để chấm</div>
+            </div>
+          </div>
+          <div class="face back">
+            <div class="face-top">
+              <div class="kicker" id="backKicker">Nghĩa</div>
+            </div>
+            <div class="face-body">
+              <div class="icon" id="backIcon"></div>
+              <div class="meaning" id="backMeaning">—</div>
+              <div class="example" id="backExample"></div>
+              <div class="example-vi" id="backExampleVi"></div>
+            </div>
+            <div class="face-bottom">
+              <div class="hint">👆 Nhấn để lật lại</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls" style="margin-top:14px">
+      <button class="ctl nav" id="btnPrev">← Trước</button>
+      <button class="ctl forget" id="btnForget">😕 Quên</button>
+      <button class="ctl know" id="btnKnow">✓ Nhớ</button>
+      <button class="ctl nav" id="btnNext">Sau →</button>
+    </div>
+    <div class="swipe-tip">Mẹo: vuốt trái = Quên · vuốt phải = Nhớ</div>
+  </div>
+
+  <!-- Review round -->
+  <div id="reviewView" class="overlay hidden">
+    <div class="emoji">😕</div>
+    <h2 id="reviewTitle">Còn 0 từ chưa nhớ</h2>
+    <p>Hãy ôn lại những từ này:</p>
+    <div class="review-list" id="reviewList"></div>
+    <button class="btn-primary" id="btnReviewNow">🔁 Ôn lại ngay</button>
+  </div>
+
+  <!-- Done -->
+  <div id="doneView" class="overlay hidden">
+    <div class="emoji">🏆</div>
+    <h2>Xuất sắc!</h2>
+    <p id="doneSub">Bạn đã nhớ tất cả từ vựng!</p>
+    <button class="btn-primary" id="btnRestart">🔄 Học lại từ đầu</button>
+  </div>
+
+  <!-- Empty -->
+  <div id="emptyView" class="overlay hidden">
+    <div class="emoji">📭</div>
+    <h2>Bộ thẻ trống</h2>
+    <p>Bộ từ vựng chưa có nội dung. Hãy liên hệ giáo viên của bạn.</p>
+  </div>
+
+  <!-- Kiểm tra từ vựng — trắc nghiệm, dùng chung DECK + bộ lọc chủ đề -->
+  <div id="quizView" class="hidden">
+    <div class="quiz-progress">
+      <span id="quizCounter">Câu 1/1</span>
+      <div class="prog"><i id="quizProgFill"></i></div>
+      <span class="quiz-score-live">✓ <b id="quizScoreLive">0</b></span>
+      <button type="button" class="quiz-submit-btn" id="quizSubmitBtn" disabled>📤 Nộp bài</button>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-icon" id="quizIcon"></div>
+      <div class="quiz-word" id="quizWord">—</div>
+      <div class="quiz-pron" id="quizPron"></div>
+      <div class="quiz-hint">Chọn nghĩa đúng của từ trên</div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+    <div class="quiz-footer">
+      <button type="button" class="quiz-next-btn hidden" id="quizNext">Câu tiếp →</button>
+    </div>
+  </div>
+
+  <!-- Kết quả kiểm tra -->
+  <div id="quizResultView" class="overlay hidden">
+    <div class="emoji">📝</div>
+    <h2>Kết quả kiểm tra</h2>
+    <p id="quizScoreLabel">0/0 câu đúng</p>
+    <div class="quiz-result-score" id="quizScorePct">0%</div>
+    <button class="btn-primary" id="btnQuizRetry">🔁 Làm lại</button>
+    <button class="btn-outline" id="btnQuizToStudy">🎴 Quay lại ôn thẻ</button>
+  </div>
+  <div class="wm-footer" id="wmFooter"></div>
+  </div><!-- /.app -->
+</div><!-- /.layout -->
+
+<!-- (Đã gỡ trình soạn thẻ – học sinh không chỉnh sửa nội dung) -->
+
+<!-- Settings modal -->
+<div class="modal-bg hidden" id="setModal">
+  <div class="modal">
+    <h3>⚙️ Cài đặt học</h3>
+    <p class="sub">Điều chỉnh cách ôn cho phù hợp với bạn.</p>
+    <label>Chiều học</label>
+    <div class="seg" id="segDir">
+      <button data-v="fwd">Từ → Nghĩa</button>
+      <button data-v="rev">Nghĩa → Từ</button>
+      <button data-v="mix">Trộn</button>
+    </div>
+    <div class="toggle-row"><span>🔊 Tự phát âm khi hiện thẻ</span><button class="switch" id="tglAudio" aria-label="Tự phát âm"></button></div>
+    <div class="toggle-row"><span>🌙 Giao diện tối</span><button class="switch" id="tglDark" aria-label="Giao diện tối"></button></div>
+    <div class="toggle-row"><span>🎯 Ưu tiên từ chưa thuộc</span><button class="switch" id="tglWeak" aria-label="Ưu tiên từ yếu"></button></div>
+    <button class="btn-outline danger" id="btnResetProg">↺ Đặt lại tiến độ thuộc</button>
+    <button class="btn-primary" id="btnCloseSet">Xong</button>
+  </div>
+</div>
+
+<!-- Tên học sinh — chỉ hỏi 1 lần trên máy này, dùng để ghi điểm Kiểm tra về Sheet -->
+<div class="modal-bg hidden" id="nameModal">
+  <div class="modal">
+    <h3>🏷️ Tên của bạn</h3>
+    <p class="sub">Nhập tên để giáo viên biết ai vừa làm bài kiểm tra này. Máy này sẽ nhớ tên, chỉ cần nhập 1 lần.</p>
+    <label>Tên học sinh</label>
+    <input type="text" id="nameInput" placeholder="VD: Nguyễn Văn A" autocomplete="name">
+    <button class="btn-primary" id="btnSaveName">Lưu &amp; xem kết quả</button>
+  </div>
+</div>
+
+<!-- Xác nhận nộp bài giữa chừng — cho phép nộp điểm bất cứ lúc nào, không cần làm hết thẻ -->
+<div class="modal-bg hidden" id="countModal">
+  <div class="modal">
+    <h3>📝 Kiểm tra bao nhiêu từ?</h3>
+    <p class="sub" id="countSub">Bộ đang chọn có 0 từ. Từ sẽ được rút ngẫu nhiên.</p>
+    <div class="cnt-grid" id="countGrid"></div>
+    <label for="countInput">Hoặc nhập số từ:</label>
+    <input type="number" id="countInput" min="1" inputmode="numeric">
+    <p class="count-note">Không giới hạn thời gian — làm từ từ nhé.</p>
+    <button class="btn-primary" id="btnCountStart">▶️ Bắt đầu kiểm tra</button>
+    <button class="btn-outline" id="btnCountCancel">🎴 Quay lại ôn thẻ</button>
+  </div>
+</div>
+
+<div class="modal-bg hidden" id="submitConfirmModal">
+  <div class="modal">
+    <h3>📤 Nộp bài ngay?</h3>
+    <p class="sub" id="submitConfirmSub">Bạn đã làm 0/0 câu, đúng 0 câu.</p>
+    <button class="btn-primary" id="btnSubmitConfirmYes">✅ Nộp bài</button>
+    <button class="btn-outline" id="btnSubmitConfirmNo">Làm tiếp</button>
+  </div>
+</div>
+
+<script>
+/* ---------- Lưu trữ an toàn ---------- */
+const store = {
+  save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+  load(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
+};
+
+/* ---------- Bộ thẻ nhúng sẵn (giáo viên soạn) ---------- */
+const DECK = {"title": "🎯 Từ vựng tiếng Trung – 26.10", "lang": "zh-CN", "scoreSheetUrl": "", "classLabel": "", "unitLabel": "", "levelLabel": "", "cards": [{"front": "单独", "back": "một mình, riêng (lẻ)", "ex": "我想单独跟你谈谈。\n他喜欢单独旅行。", "ex_vi": "Tôi muốn nói chuyện riêng với bạn.\nAnh ấy thích đi du lịch một mình.", "pron": "dāndú", "img": "", "group": "List 01", "ex_py": "Wǒ xiǎng dāndú gēn nǐ tántan.\nTā xǐhuan dāndú lǚxíng."}, {"front": "与其", "back": "thay vì (与其…不如…)", "ex": "与其在家睡觉，不如出去走走。\n与其等他，不如我们先走。", "ex_vi": "Thay vì ở nhà ngủ, chi bằng ra ngoài đi dạo.\nThay vì đợi anh ấy, chúng ta đi trước thì hơn.", "pron": "yǔqí", "img": "", "group": "List 01", "ex_py": "Yǔqí zài jiā shuìjiào, bùrú chūqù zǒuzou.\nYǔqí děng tā, bùrú wǒmen xiān zǒu."}, {"front": "拼车", "back": "đi chung xe", "ex": "我们拼车去机场吧。\n拼车既省钱又环保。", "ex_vi": "Chúng ta đi chung xe ra sân bay nhé.\nĐi chung xe vừa tiết kiệm tiền vừa bảo vệ môi trường.", "pron": "pīnchē", "img": "", "group": "List 01", "ex_py": "Wǒmen pīnchē qù jīchǎng ba.\nPīnchē jì shěngqián yòu huánbǎo."}, {"front": "公交车", "back": "xe buýt", "ex": "我每天坐公交车上班。\n公交车站就在前面。", "ex_vi": "Tôi đi làm bằng xe buýt mỗi ngày.\nTrạm xe buýt ở ngay phía trước.", "pron": "gōngjiāochē", "img": "", "group": "List 01", "ex_py": "Wǒ měitiān zuò gōngjiāochē shàngbān.\nGōngjiāochē zhàn jiù zài qiánmiàn."}, {"front": "乘坐", "back": "đi, ngồi (xe, tàu, máy bay)", "ex": "请乘坐地铁二号线。\n乘坐飞机时不能抽烟。", "ex_vi": "Xin hãy đi tàu điện ngầm tuyến số 2.\nKhi đi máy bay không được hút thuốc.", "pron": "chéngzuò", "img": "", "group": "List 01", "ex_py": "Qǐng chéngzuò dìtiě èr hào xiàn.\nChéngzuò fēijī shí bùnéng chōuyān."}, {"front": "减少", "back": "giảm, giảm bớt", "ex": "我们应该减少使用塑料袋。\n最近来的客人减少了。", "ex_vi": "Chúng ta nên giảm sử dụng túi nhựa.\nGần đây khách đến đã giảm.", "pron": "jiǎnshǎo", "img": "", "group": "List 01", "ex_py": "Wǒmen yīnggāi jiǎnshǎo shǐyòng sùliàodài.\nZuìjìn lái de kèrén jiǎnshǎo le."}, {"front": "污染", "back": "ô nhiễm", "ex": "这个城市的空气污染很严重。\n工厂的废水污染了河水。", "ex_vi": "Ô nhiễm không khí ở thành phố này rất nghiêm trọng.\nNước thải nhà máy đã làm ô nhiễm nước sông.", "pron": "wūrǎn", "img": "", "group": "List 01", "ex_py": "Zhège chéngshì de kōngqì wūrǎn hěn yánzhòng.\nGōngchǎng de fèishuǐ wūrǎn le héshuǐ."}, {"front": "布袋", "back": "túi vải", "ex": "去超市买东西时，我带布袋。\n布袋可以用很多次。", "ex_vi": "Khi đi siêu thị mua đồ, tôi mang túi vải.\nTúi vải có thể dùng nhiều lần.", "pron": "bùdài", "img": "", "group": "List 01", "ex_py": "Qù chāoshì mǎi dōngxi shí, wǒ dài bùdài.\nBùdài kěyǐ yòng hěn duō cì."}, {"front": "尽量", "back": "cố gắng hết sức; càng… càng tốt", "ex": "我会尽量早点儿回来。\n请尽量少用一次性筷子。", "ex_vi": "Tôi sẽ cố gắng về sớm.\nHãy cố gắng dùng ít đũa dùng một lần.", "pron": "jǐnliàng", "img": "", "group": "List 01", "ex_py": "Wǒ huì jǐnliàng zǎodiǎnr huílái.\nQǐng jǐnliàng shǎo yòng yícìxìng kuàizi."}, {"front": "塑料袋", "back": "túi nhựa, túi nilon", "ex": "塑料袋很难分解。\n超市的塑料袋要花钱买。", "ex_vi": "Túi nhựa rất khó phân hủy.\nTúi nhựa ở siêu thị phải trả tiền mua.", "pron": "sùliàodài", "img": "", "group": "List 01", "ex_py": "Sùliàodài hěn nán fēnjiě.\nChāoshì de sùliàodài yào huā qián mǎi."}, {"front": "电源", "back": "nguồn điện", "ex": "出门前请关掉电源。\n电脑没有接电源。", "ex_vi": "Trước khi ra ngoài xin hãy tắt nguồn điện.\nMáy tính chưa cắm nguồn điện.", "pron": "diànyuán", "img": "", "group": "List 02", "ex_py": "Chūmén qián qǐng guāndiào diànyuán.\nDiànnǎo méiyǒu jiē diànyuán."}, {"front": "水龙头", "back": "vòi nước", "ex": "刷牙的时候要关上水龙头。\n厨房的水龙头坏了。", "ex_vi": "Khi đánh răng phải khóa vòi nước.\nVòi nước trong bếp hỏng rồi.", "pron": "shuǐlóngtóu", "img": "", "group": "List 02", "ex_py": "Shuāyá de shíhou yào guānshàng shuǐlóngtóu.\nChúfáng de shuǐlóngtóu huài le."}, {"front": "有益", "back": "có lợi, có ích", "ex": "运动对身体有益。\n读书是一件有益的事。", "ex_vi": "Vận động có lợi cho sức khỏe.\nĐọc sách là một việc có ích.", "pron": "yǒuyì", "img": "", "group": "List 02", "ex_py": "Yùndòng duì shēntǐ yǒuyì.\nDúshū shì yí jiàn yǒuyì de shì."}, {"front": "种树", "back": "trồng cây", "ex": "春天是种树的好季节。\n我们周末去山上种树。", "ex_vi": "Mùa xuân là mùa tốt để trồng cây.\nCuối tuần chúng tôi lên núi trồng cây.", "pron": "zhòngshù", "img": "", "group": "List 02", "ex_py": "Chūntiān shì zhòngshù de hǎo jìjié.\nWǒmen zhōumò qù shānshàng zhòngshù."}, {"front": "行动", "back": "hành động", "ex": "保护环境要从现在开始行动。\n他说得多，行动少。", "ex_vi": "Bảo vệ môi trường phải bắt đầu hành động từ bây giờ.\nAnh ta nói nhiều mà hành động ít.", "pron": "xíngdòng", "img": "", "group": "List 02", "ex_py": "Bǎohù huánjìng yào cóng xiànzài kāishǐ xíngdòng.\nTā shuō de duō, xíngdòng shǎo."}, {"front": "地球", "back": "trái đất", "ex": "地球是我们共同的家。\n我们要保护地球。", "ex_vi": "Trái đất là ngôi nhà chung của chúng ta.\nChúng ta phải bảo vệ trái đất.", "pron": "dìqiú", "img": "", "group": "List 02", "ex_py": "Dìqiú shì wǒmen gòngtóng de jiā.\nWǒmen yào bǎohù dìqiú."}, {"front": "如何", "back": "như thế nào, làm sao", "ex": "你知道如何学好汉语吗？\n这个问题如何解决？", "ex_vi": "Bạn có biết làm sao để học tốt tiếng Trung không?\nVấn đề này giải quyết thế nào?", "pron": "rúhé", "img": "", "group": "List 02", "ex_py": "Nǐ zhīdao rúhé xuéhǎo Hànyǔ ma?\nZhège wèntí rúhé jiějué?"}, {"front": "省钱", "back": "tiết kiệm tiền", "ex": "自己做饭比较省钱。\n为了省钱，他每天走路上班。", "ex_vi": "Tự nấu ăn thì tiết kiệm tiền hơn.\nĐể tiết kiệm tiền, ngày nào anh ấy cũng đi bộ đi làm.", "pron": "shěngqián", "img": "", "group": "List 02", "ex_py": "Zìjǐ zuòfàn bǐjiào shěngqián.\nWèile shěngqián, tā měitiān zǒulù shàngbān."}, {"front": "独自", "back": "một mình (tự mình)", "ex": "她独自住在北京。\n我不想独自去看电影。", "ex_vi": "Cô ấy sống một mình ở Bắc Kinh.\nTôi không muốn đi xem phim một mình.", "pron": "dúzì", "img": "", "group": "List 02", "ex_py": "Tā dúzì zhù zài Běijīng.\nWǒ bù xiǎng dúzì qù kàn diànyǐng."}, {"front": "交通工具", "back": "phương tiện giao thông", "ex": "地铁是最方便的交通工具。\n你平时用什么交通工具？", "ex_vi": "Tàu điện ngầm là phương tiện giao thông tiện nhất.\nBình thường bạn dùng phương tiện gì?", "pron": "jiāotōng gōngjù", "img": "", "group": "List 02", "ex_py": "Dìtiě shì zuì fāngbiàn de jiāotōng gōngjù.\nNǐ píngshí yòng shénme jiāotōng gōngjù?"}, {"front": "公共", "back": "công cộng", "ex": "公共场所禁止抽烟。\n我们应该多坐公共汽车。", "ex_vi": "Nơi công cộng cấm hút thuốc.\nChúng ta nên đi xe buýt công cộng nhiều hơn.", "pron": "gōnggòng", "img": "", "group": "List 03", "ex_py": "Gōnggòng chǎngsuǒ jìnzhǐ chōuyān.\nWǒmen yīnggāi duō zuò gōnggòng qìchē."}, {"front": "让…一直开着", "back": "để (thứ gì) bật / mở liên tục", "ex": "别让电脑一直开着。\n他让空调一直开着，太浪费电了。", "ex_vi": "Đừng để máy tính bật liên tục.\nAnh ấy để điều hòa chạy suốt, quá lãng phí điện.", "pron": "ràng… yìzhí kāizhe", "img": "", "group": "List 03", "ex_py": "Bié ràng diànnǎo yìzhí kāizhe.\nTā ràng kōngtiáo yìzhí kāizhe, tài làngfèi diàn le."}, {"front": "作者", "back": "tác giả", "ex": "这本书的作者是谁？\n作者在文章里讲了自己的经历。", "ex_vi": "Tác giả cuốn sách này là ai?\nTác giả kể lại trải nghiệm của mình trong bài viết.", "pron": "zuòzhě", "img": "", "group": "List 03", "ex_py": "Zhè běn shū de zuòzhě shì shuí?\nZuòzhě zài wénzhāng lǐ jiǎng le zìjǐ de jīnglì."}, {"front": "政府", "back": "chính phủ", "ex": "政府鼓励大家坐公共交通。\n这条路是政府修的。", "ex_vi": "Chính phủ khuyến khích mọi người đi phương tiện công cộng.\nCon đường này do chính phủ làm.", "pron": "zhèngfǔ", "img": "", "group": "List 03", "ex_py": "Zhèngfǔ gǔlì dàjiā zuò gōnggòng jiāotōng.\nZhè tiáo lù shì zhèngfǔ xiū de."}, {"front": "美观", "back": "đẹp, thẩm mỹ", "ex": "这个设计既实用又美观。\n房间收拾得很美观。", "ex_vi": "Thiết kế này vừa thực dụng vừa đẹp.\nCăn phòng được dọn dẹp rất đẹp mắt.", "pron": "měiguān", "img": "", "group": "List 03", "ex_py": "Zhège shèjì jì shíyòng yòu měiguān.\nFángjiān shōushi de hěn měiguān."}, {"front": "吵闹", "back": "ồn ào", "ex": "外面太吵闹了，我睡不着。\n孩子们在教室里吵闹。", "ex_vi": "Bên ngoài ồn ào quá, tôi không ngủ được.\nBọn trẻ làm ồn trong lớp.", "pron": "chǎonào", "img": "", "group": "List 03", "ex_py": "Wàimiàn tài chǎonào le, wǒ shuìbùzhe.\nHáizimen zài jiàoshì lǐ chǎonào."}, {"front": "限制", "back": "hạn chế, giới hạn", "ex": "这次考试没有时间限制。\n城市限制汽车数量。", "ex_vi": "Bài thi lần này không giới hạn thời gian.\nThành phố hạn chế số lượng ô tô.", "pron": "xiànzhì", "img": "", "group": "List 03", "ex_py": "Zhè cì kǎoshì méiyǒu shíjiān xiànzhì.\nChéngshì xiànzhì qìchē shùliàng."}, {"front": "工厂", "back": "nhà máy", "ex": "我爸爸在一家工厂工作。\n这个工厂生产汽车。", "ex_vi": "Bố tôi làm việc ở một nhà máy.\nNhà máy này sản xuất ô tô.", "pron": "gōngchǎng", "img": "", "group": "List 03", "ex_py": "Wǒ bàba zài yì jiā gōngchǎng gōngzuò.\nZhège gōngchǎng shēngchǎn qìchē."}, {"front": "烟", "back": "khói; thuốc lá", "ex": "工厂的烟污染了空气。\n厨房里都是烟。", "ex_vi": "Khói nhà máy làm ô nhiễm không khí.\nTrong bếp toàn là khói.", "pron": "yān", "img": "", "group": "List 03", "ex_py": "Gōngchǎng de yān wūrǎn le kōngqì.\nChúfáng lǐ dōu shì yān."}, {"front": "造成", "back": "gây ra", "ex": "大雨造成了交通堵塞。\n这次事故造成很大的损失。", "ex_vi": "Mưa lớn gây ra tắc đường.\nVụ tai nạn này gây ra tổn thất lớn.", "pron": "zàochéng", "img": "", "group": "List 03", "ex_py": "Dàyǔ zàochéng le jiāotōng dǔsè.\nZhè cì shìgù zàochéng hěn dà de sǔnshī."}, {"front": "民族", "back": "dân tộc", "ex": "中国有五十六个民族。\n每个民族都有自己的文化。", "ex_vi": "Trung Quốc có 56 dân tộc.\nMỗi dân tộc đều có văn hóa riêng.", "pron": "mínzú", "img": "", "group": "List 04", "ex_py": "Zhōngguó yǒu wǔshíliù ge mínzú.\nMěi ge mínzú dōu yǒu zìjǐ de wénhuà."}, {"front": "母亲", "back": "mẹ", "ex": "我的母亲是一位老师。\n母亲节快乐！", "ex_vi": "Mẹ tôi là một giáo viên.\nChúc mừng Ngày của Mẹ!", "pron": "mǔqīn", "img": "", "group": "List 04", "ex_py": "Wǒ de mǔqīn shì yí wèi lǎoshī.\nMǔqīnjié kuàilè!"}, {"front": "饺子", "back": "sủi cảo, bánh chẻo", "ex": "春节的时候我们一起包饺子。\n我最喜欢吃妈妈做的饺子。", "ex_vi": "Dịp Tết chúng tôi cùng nhau gói sủi cảo.\nTôi thích nhất là sủi cảo mẹ làm.", "pron": "jiǎozi", "img": "", "group": "List 04", "ex_py": "Chūnjié de shíhou wǒmen yìqǐ bāo jiǎozi.\nWǒ zuì xǐhuan chī māma zuò de jiǎozi."}, {"front": "干杯", "back": "cạn ly, nâng ly chúc mừng", "ex": "为我们的友谊干杯！\n大家一起干杯吧！", "ex_vi": "Cạn ly vì tình bạn của chúng ta!\nMọi người cùng cạn ly nào!", "pron": "gānbēi", "img": "", "group": "List 04", "ex_py": "Wèi wǒmen de yǒuyì gānbēi!\nDàjiā yìqǐ gānbēi ba!"}, {"front": "为…而…", "back": "vì… mà…", "ex": "我们为成功而努力。\n不要为小事而生气。", "ex_vi": "Chúng tôi nỗ lực vì thành công.\nĐừng vì chuyện nhỏ mà tức giận.", "pron": "wèi… ér…", "img": "", "group": "List 04", "ex_py": "Wǒmen wèi chénggōng ér nǔlì.\nBúyào wèi xiǎoshì ér shēngqì."}, {"front": "气候变暖", "back": "khí hậu nóng lên", "ex": "气候变暖是全球的问题。\n气候变暖让冬天越来越短。", "ex_vi": "Khí hậu nóng lên là vấn đề toàn cầu.\nKhí hậu nóng lên khiến mùa đông ngày càng ngắn.", "pron": "qìhòu biànnuǎn", "img": "", "group": "List 04", "ex_py": "Qìhòu biànnuǎn shì quánqiú de wèntí.\nQìhòu biànnuǎn ràng dōngtiān yuèláiyuè duǎn."}, {"front": "严重", "back": "nghiêm trọng", "ex": "他的病很严重。\n这个问题比我们想的更严重。", "ex_vi": "Bệnh của anh ấy rất nghiêm trọng.\nVấn đề này nghiêm trọng hơn chúng ta nghĩ.", "pron": "yánzhòng", "img": "", "group": "List 04", "ex_py": "Tā de bìng hěn yánzhòng.\nZhège wèntí bǐ wǒmen xiǎng de gèng yánzhòng."}, {"front": "区别", "back": "sự khác biệt; phân biệt", "ex": "这两个词有什么区别？\n我分不清它们的区别。", "ex_vi": "Hai từ này khác nhau thế nào?\nTôi không phân biệt được chúng khác nhau chỗ nào.", "pron": "qūbié", "img": "", "group": "List 04", "ex_py": "Zhè liǎng ge cí yǒu shénme qūbié?\nWǒ fēnbùqīng tāmen de qūbié."}, {"front": "词语", "back": "từ ngữ", "ex": "请用这些词语造句。\n这个词语是什么意思？", "ex_vi": "Hãy dùng những từ này để đặt câu.\nTừ này nghĩa là gì?", "pron": "cíyǔ", "img": "", "group": "List 04", "ex_py": "Qǐng yòng zhèxiē cíyǔ zàojù.\nZhège cíyǔ shì shénme yìsi?"}, {"front": "一场演出", "back": "một buổi biểu diễn", "ex": "今晚有一场精彩的演出。\n这场演出的票都卖完了。", "ex_vi": "Tối nay có một buổi biểu diễn rất hay.\nVé buổi biểu diễn này đã bán hết.", "pron": "yì chǎng yǎnchū", "img": "", "group": "List 04", "ex_py": "Jīnwǎn yǒu yì chǎng jīngcǎi de yǎnchū.\nZhè chǎng yǎnchū de piào dōu màiwán le."}, {"front": "增长", "back": "tăng trưởng, tăng lên", "ex": "今年公司的收入增长了百分之十。\n城市人口增长得很快。", "ex_vi": "Năm nay doanh thu công ty tăng 10%.\nDân số thành phố tăng rất nhanh.", "pron": "zēngzhǎng", "img": "", "group": "List 05", "ex_py": "Jīnnián gōngsī de shōurù zēngzhǎng le bǎifēnzhī shí.\nChéngshì rénkǒu zēngzhǎng de hěn kuài."}, {"front": "经济", "back": "kinh tế", "ex": "越南的经济发展得很快。\n他在大学学经济。", "ex_vi": "Kinh tế Việt Nam phát triển rất nhanh.\nAnh ấy học kinh tế ở đại học.", "pron": "jīngjì", "img": "", "group": "List 05", "ex_py": "Yuènán de jīngjì fāzhǎn de hěn kuài.\nTā zài dàxué xué jīngjì."}, {"front": "亚洲", "back": "châu Á", "ex": "中国和越南都在亚洲。\n亚洲是世界上最大的洲。", "ex_vi": "Trung Quốc và Việt Nam đều ở châu Á.\nChâu Á là châu lục lớn nhất thế giới.", "pron": "Yàzhōu", "img": "", "group": "List 05", "ex_py": "Zhōngguó hé Yuènán dōu zài Yàzhōu.\nYàzhōu shì shìjiè shàng zuì dà de zhōu."}, {"front": "速度", "back": "tốc độ", "ex": "请放慢速度。\n他打字的速度很快。", "ex_vi": "Xin hãy giảm tốc độ.\nTốc độ đánh máy của anh ấy rất nhanh.", "pron": "sùdù", "img": "", "group": "List 05", "ex_py": "Qǐng fàngmàn sùdù.\nTā dǎzì de sùdù hěn kuài."}, {"front": "逐渐", "back": "dần dần", "ex": "天气逐渐变冷了。\n我逐渐习惯了这里的生活。", "ex_vi": "Thời tiết dần dần trở lạnh.\nTôi dần quen với cuộc sống ở đây.", "pron": "zhújiàn", "img": "", "group": "List 05", "ex_py": "Tiānqì zhújiàn biàn lěng le.\nWǒ zhújiàn xíguàn le zhèlǐ de shēnghuó."}, {"front": "顺序", "back": "thứ tự", "ex": "请按顺序排队。\n这些句子的顺序错了。", "ex_vi": "Xin hãy xếp hàng theo thứ tự.\nThứ tự các câu này sai rồi.", "pron": "shùnxù", "img": "", "group": "List 05", "ex_py": "Qǐng àn shùnxù páiduì.\nZhèxiē jùzi de shùnxù cuò le."}, {"front": "排列", "back": "sắp xếp (theo hàng, theo thứ tự)", "ex": "请把这些词语排列成句子。\n书是按大小排列的。", "ex_vi": "Hãy sắp xếp các từ này thành câu.\nSách được xếp theo kích cỡ.", "pron": "páiliè", "img": "", "group": "List 05", "ex_py": "Qǐng bǎ zhèxiē cíyǔ páiliè chéng jùzi.\nShū shì àn dàxiǎo páiliè de."}, {"front": "数字", "back": "con số, chữ số", "ex": "中国人喜欢数字八。\n这些数字说明了什么？", "ex_vi": "Người Trung Quốc thích con số 8.\nNhững con số này cho thấy điều gì?", "pron": "shùzì", "img": "", "group": "List 05", "ex_py": "Zhōngguórén xǐhuan shùzì bā.\nZhèxiē shùzì shuōmíng le shénme?"}, {"front": "钢琴", "back": "đàn piano", "ex": "她从五岁开始学钢琴。\n客厅里有一架钢琴。", "ex_vi": "Cô ấy học piano từ năm 5 tuổi.\nTrong phòng khách có một cây đàn piano.", "pron": "gāngqín", "img": "", "group": "List 05", "ex_py": "Tā cóng wǔ suì kāishǐ xué gāngqín.\nKètīng lǐ yǒu yí jià gāngqín."}, {"front": "声音", "back": "âm thanh, tiếng, giọng", "ex": "请把声音开大一点儿。\n她的声音很好听。", "ex_vi": "Xin hãy mở to tiếng lên một chút.\nGiọng cô ấy rất hay.", "pron": "shēngyīn", "img": "", "group": "List 05", "ex_py": "Qǐng bǎ shēngyīn kāi dà yìdiǎnr.\nTā de shēngyīn hěn hǎotīng."}, {"front": "妹妹", "back": "em gái", "ex": "我妹妹今年上大学了。\n妹妹比我小三岁。", "ex_vi": "Năm nay em gái tôi vào đại học.\nEm gái nhỏ hơn tôi 3 tuổi.", "pron": "mèimei", "img": "", "group": "List 06", "ex_py": "Wǒ mèimei jīnnián shàng dàxué le.\nMèimei bǐ wǒ xiǎo sān suì."}, {"front": "弹", "back": "chơi (đàn), gảy đàn", "ex": "你会弹钢琴吗？\n他弹吉他弹得很好。", "ex_vi": "Bạn biết chơi piano không?\nAnh ấy chơi guitar rất hay.", "pron": "tán", "img": "", "group": "List 06", "ex_py": "Nǐ huì tán gāngqín ma?\nTā tán jítā tán de hěn hǎo."}, {"front": "吵醒", "back": "làm ồn đánh thức (ai đó)", "ex": "对不起，把你吵醒了。\n我被邻居的音乐吵醒了。", "ex_vi": "Xin lỗi, đã làm bạn thức giấc.\nTôi bị tiếng nhạc nhà hàng xóm đánh thức.", "pron": "chǎoxǐng", "img": "", "group": "List 06", "ex_py": "Duìbuqǐ, bǎ nǐ chǎoxǐng le.\nWǒ bèi línjū de yīnyuè chǎoxǐng le."}, {"front": "语言", "back": "ngôn ngữ", "ex": "她会说四种语言。\n学语言需要多练习。", "ex_vi": "Cô ấy nói được bốn thứ tiếng.\nHọc ngoại ngữ cần luyện tập nhiều.", "pron": "yǔyán", "img": "", "group": "List 06", "ex_py": "Tā huì shuō sì zhǒng yǔyán.\nXué yǔyán xūyào duō liànxí."}, {"front": "超出", "back": "vượt quá", "ex": "价格超出了我的预算。\n结果超出了大家的预期。", "ex_vi": "Giá vượt quá ngân sách của tôi.\nKết quả vượt ngoài kỳ vọng của mọi người.", "pron": "chāochū", "img": "", "group": "List 06", "ex_py": "Jiàgé chāochū le wǒ de yùsuàn.\nJiéguǒ chāochū le dàjiā de yùqī."}, {"front": "高级", "back": "cao cấp", "ex": "这是一家高级饭店。\n他已经学到高级汉语了。", "ex_vi": "Đây là một khách sạn cao cấp.\nAnh ấy đã học đến tiếng Trung cao cấp.", "pron": "gāojí", "img": "", "group": "List 06", "ex_py": "Zhè shì yì jiā gāojí fàndiàn.\nTā yǐjīng xuédào gāojí Hànyǔ le."}, {"front": "主管", "back": "người quản lý, phụ trách", "ex": "我们的主管很严格。\n他是销售部的主管。", "ex_vi": "Quản lý của chúng tôi rất nghiêm khắc.\nAnh ấy là quản lý bộ phận bán hàng.", "pron": "zhǔguǎn", "img": "", "group": "List 06", "ex_py": "Wǒmen de zhǔguǎn hěn yángé.\nTā shì xiāoshòubù de zhǔguǎn."}, {"front": "招聘", "back": "tuyển dụng", "ex": "这家公司正在招聘新员工。\n我在网上看到一个招聘广告。", "ex_vi": "Công ty này đang tuyển nhân viên mới.\nTôi thấy một quảng cáo tuyển dụng trên mạng.", "pron": "zhāopìn", "img": "", "group": "List 06", "ex_py": "Zhè jiā gōngsī zhèngzài zhāopìn xīn yuángōng.\nWǒ zài wǎngshàng kàndào yí ge zhāopìn guǎnggào."}, {"front": "银行", "back": "ngân hàng", "ex": "我去银行取钱。\n银行几点关门？", "ex_vi": "Tôi đi ngân hàng rút tiền.\nNgân hàng mấy giờ đóng cửa?", "pron": "yínháng", "img": "", "group": "List 06", "ex_py": "Wǒ qù yínháng qǔ qián.\nYínháng jǐ diǎn guānmén?"}, {"front": "加油站", "back": "trạm xăng", "ex": "前面有一个加油站。\n车没油了，得去加油站。", "ex_vi": "Phía trước có một trạm xăng.\nXe hết xăng rồi, phải đi trạm xăng.", "pron": "jiāyóuzhàn", "img": "", "group": "List 06", "ex_py": "Qiánmiàn yǒu yí ge jiāyóuzhàn.\nChē méi yóu le, děi qù jiāyóuzhàn."}, {"front": "禁止", "back": "cấm", "ex": "这里禁止停车。\n图书馆里禁止大声说话。", "ex_vi": "Ở đây cấm đỗ xe.\nTrong thư viện cấm nói to.", "pron": "jìnzhǐ", "img": "", "group": "List 07", "ex_py": "Zhèlǐ jìnzhǐ tíngchē.\nTúshūguǎn lǐ jìnzhǐ dàshēng shuōhuà."}, {"front": "拉近", "back": "kéo gần lại", "ex": "一起吃饭能拉近人和人的距离。\n手机拉近了我们和家人的距离。", "ex_vi": "Ăn cơm cùng nhau có thể kéo gần khoảng cách giữa người với người.\nĐiện thoại kéo gần khoảng cách giữa chúng ta với gia đình.", "pron": "lājìn", "img": "", "group": "List 07", "ex_py": "Yìqǐ chīfàn néng lājìn rén hé rén de jùlí.\nShǒujī lājìn le wǒmen hé jiārén de jùlí."}, {"front": "距离", "back": "khoảng cách", "ex": "我家离公司的距离不远。\n两个城市之间的距离是两百公里。", "ex_vi": "Khoảng cách từ nhà tôi đến công ty không xa.\nKhoảng cách giữa hai thành phố là 200 km.", "pron": "jùlí", "img": "", "group": "List 07", "ex_py": "Wǒ jiā lí gōngsī de jùlí bù yuǎn.\nLiǎng ge chéngshì zhījiān de jùlí shì liǎngbǎi gōnglǐ."}, {"front": "打针", "back": "tiêm", "ex": "孩子最怕打针。\n医生说你需要打针。", "ex_vi": "Trẻ con sợ nhất là bị tiêm.\nBác sĩ nói bạn cần tiêm.", "pron": "dǎzhēn", "img": "", "group": "List 07", "ex_py": "Háizi zuì pà dǎzhēn.\nYīshēng shuō nǐ xūyào dǎzhēn."}, {"front": "吃药", "back": "uống thuốc", "ex": "你吃药了吗？\n这种药一天吃三次。", "ex_vi": "Bạn uống thuốc chưa?\nLoại thuốc này uống ngày ba lần.", "pron": "chī yào", "img": "", "group": "List 07", "ex_py": "Nǐ chī yào le ma?\nZhè zhǒng yào yì tiān chī sān cì."}, {"front": "符合", "back": "phù hợp, đáp ứng", "ex": "他的条件符合我们的要求。\n这不符合规定。", "ex_vi": "Điều kiện của anh ấy đáp ứng yêu cầu của chúng tôi.\nĐiều này không phù hợp quy định.", "pron": "fúhé", "img": "", "group": "List 07", "ex_py": "Tā de tiáojiàn fúhé wǒmen de yāoqiú.\nZhè bù fúhé guīdìng."}, {"front": "完全", "back": "hoàn toàn", "ex": "我完全同意你的看法。\n他的病已经完全好了。", "ex_vi": "Tôi hoàn toàn đồng ý với quan điểm của bạn.\nBệnh của anh ấy đã khỏi hoàn toàn.", "pron": "wánquán", "img": "", "group": "List 07", "ex_py": "Wǒ wánquán tóngyì nǐ de kànfǎ.\nTā de bìng yǐjīng wánquán hǎo le."}, {"front": "法律", "back": "pháp luật", "ex": "每个人都要遵守法律。\n她在大学学法律。", "ex_vi": "Mọi người đều phải tuân thủ pháp luật.\nCô ấy học luật ở đại học.", "pron": "fǎlǜ", "img": "", "group": "List 07", "ex_py": "Měi ge rén dōu yào zūnshǒu fǎlǜ.\nTā zài dàxué xué fǎlǜ."}, {"front": "规定", "back": "quy định", "ex": "按照规定，考试时不能用手机。\n学校规定学生八点前到校。", "ex_vi": "Theo quy định, khi thi không được dùng điện thoại.\nTrường quy định học sinh đến trường trước 8 giờ.", "pron": "guīdìng", "img": "", "group": "List 07", "ex_py": "Ànzhào guīdìng, kǎoshì shí bùnéng yòng shǒujī.\nXuéxiào guīdìng xuésheng bā diǎn qián dàoxiào."}, {"front": "继续", "back": "tiếp tục", "ex": "休息一下，我们再继续。\n他毕业后继续学习汉语。", "ex_vi": "Nghỉ một chút rồi chúng ta tiếp tục.\nSau khi tốt nghiệp anh ấy tiếp tục học tiếng Trung.", "pron": "jìxù", "img": "", "group": "List 07", "ex_py": "Xiūxi yíxià, wǒmen zài jìxù.\nTā bìyè hòu jìxù xuéxí Hànyǔ."}, {"front": "暖和", "back": "ấm áp", "ex": "今天天气很暖和。\n屋里比外面暖和多了。", "ex_vi": "Hôm nay thời tiết rất ấm áp.\nTrong nhà ấm hơn bên ngoài nhiều.", "pron": "nuǎnhuo", "img": "", "group": "List 08", "ex_py": "Jīntiān tiānqì hěn nuǎnhuo.\nWū li bǐ wàimiàn nuǎnhuo duō le."}, {"front": "继续…下去", "back": "tiếp tục (như thế) mãi", "ex": "天气会继续冷下去。\n你这样继续玩下去，考试怎么办？", "ex_vi": "Thời tiết sẽ tiếp tục lạnh.\nBạn cứ tiếp tục chơi như thế thì thi cử làm sao?", "pron": "jìxù… xiàqu", "img": "", "group": "List 08", "ex_py": "Tiānqì huì jìxù lěng xiàqu.\nNǐ zhèyàng jìxù wán xiàqu, kǎoshì zěnme bàn?"}, {"front": "参观", "back": "tham quan", "ex": "我们明天去参观博物馆。\n欢迎来我们学校参观。", "ex_vi": "Ngày mai chúng ta đi tham quan bảo tàng.\nChào mừng đến tham quan trường chúng tôi.", "pron": "cānguān", "img": "", "group": "List 08", "ex_py": "Wǒmen míngtiān qù cānguān bówùguǎn.\nHuānyíng lái wǒmen xuéxiào cānguān."}, {"front": "人数", "back": "số người", "ex": "今天参观的人数很多。\n请统计一下参加的人数。", "ex_vi": "Hôm nay số người tham quan rất đông.\nXin hãy thống kê số người tham gia.", "pron": "rénshù", "img": "", "group": "List 08", "ex_py": "Jīntiān cānguān de rénshù hěn duō.\nQǐng tǒngjì yíxià cānjiā de rénshù."}, {"front": "任务", "back": "nhiệm vụ", "ex": "今天的任务完成了吗？\n老师给我们布置了一个任务。", "ex_vi": "Nhiệm vụ hôm nay hoàn thành chưa?\nThầy giao cho chúng tôi một nhiệm vụ.", "pron": "rènwu", "img": "", "group": "List 08", "ex_py": "Jīntiān de rènwu wánchéng le ma?\nLǎoshī gěi wǒmen bùzhì le yí ge rènwu."}, {"front": "真棒", "back": "giỏi quá, tuyệt quá", "ex": "你的汉语说得真棒！\n这个主意真棒！", "ex_vi": "Bạn nói tiếng Trung giỏi quá!\nÝ tưởng này tuyệt quá!", "pron": "zhēn bàng", "img": "", "group": "List 08", "ex_py": "Nǐ de Hànyǔ shuō de zhēn bàng!\nZhège zhǔyì zhēn bàng!"}, {"front": "消息", "back": "tin tức, tin", "ex": "我有一个好消息告诉你。\n你听到这个消息了吗？", "ex_vi": "Tôi có một tin vui muốn báo bạn.\nBạn nghe tin này chưa?", "pron": "xiāoxi", "img": "", "group": "List 08", "ex_py": "Wǒ yǒu yí ge hǎo xiāoxi gàosu nǐ.\nNǐ tīngdào zhège xiāoxi le ma?"}, {"front": "古城", "back": "thành cổ, phố cổ", "ex": "西安是一座有名的古城。\n我们在古城里走了一天。", "ex_vi": "Tây An là một thành cổ nổi tiếng.\nChúng tôi dạo trong phố cổ cả ngày.", "pron": "gǔchéng", "img": "", "group": "List 08", "ex_py": "Xī'ān shì yí zuò yǒumíng de gǔchéng.\nWǒmen zài gǔchéng lǐ zǒu le yì tiān."}, {"front": "著名", "back": "nổi tiếng", "ex": "他是一位著名的作家。\n杭州的西湖很著名。", "ex_vi": "Ông ấy là một nhà văn nổi tiếng.\nTây Hồ ở Hàng Châu rất nổi tiếng.", "pron": "zhùmíng", "img": "", "group": "List 08", "ex_py": "Tā shì yí wèi zhùmíng de zuòjiā.\nHángzhōu de Xīhú hěn zhùmíng."}, {"front": "口味", "back": "khẩu vị", "ex": "这道菜很合我的口味。\n南方人和北方人的口味不一样。", "ex_vi": "Món này rất hợp khẩu vị của tôi.\nKhẩu vị người miền Nam và miền Bắc khác nhau.", "pron": "kǒuwèi", "img": "", "group": "List 08", "ex_py": "Zhè dào cài hěn hé wǒ de kǒuwèi.\nNánfāngrén hé běifāngrén de kǒuwèi bù yíyàng."}, {"front": "一带", "back": "vùng, khu vực (quanh đó)", "ex": "这一带有很多饭馆。\n苏杭一带的人喜欢吃甜的。", "ex_vi": "Khu này có rất nhiều quán ăn.\nNgười vùng Tô Châu – Hàng Châu thích ăn ngọt.", "pron": "yídài", "img": "", "group": "List 09", "ex_py": "Zhè yídài yǒu hěn duō fànguǎn.\nSū Háng yídài de rén xǐhuan chī tián de."}, {"front": "苏杭", "back": "Tô Châu và Hàng Châu", "ex": "上有天堂，下有苏杭。\n我打算明年去苏杭旅游。", "ex_vi": "Trên có thiên đường, dưới có Tô – Hàng.\nTôi định năm sau đi du lịch Tô Châu – Hàng Châu.", "pron": "Sū Háng", "img": "", "group": "List 09", "ex_py": "Shàng yǒu tiāntáng, xià yǒu Sū Háng.\nWǒ dǎsuan míngnián qù Sū Háng lǚyóu."}, {"front": "清淡", "back": "thanh đạm, nhạt", "ex": "生病的时候要吃清淡的菜。\n我喜欢口味清淡一点儿的菜。", "ex_vi": "Khi ốm nên ăn đồ thanh đạm.\nTôi thích món có vị nhạt một chút.", "pron": "qīngdàn", "img": "", "group": "List 09", "ex_py": "Shēngbìng de shíhou yào chī qīngdàn de cài.\nWǒ xǐhuan kǒuwèi qīngdàn yìdiǎnr de cài."}, {"front": "怀疑", "back": "nghi ngờ", "ex": "我怀疑他在说谎。\n你不要怀疑自己的能力。", "ex_vi": "Tôi nghi anh ta đang nói dối.\nBạn đừng nghi ngờ năng lực của mình.", "pron": "huáiyí", "img": "", "group": "List 09", "ex_py": "Wǒ huáiyí tā zài shuōhuǎng.\nNǐ búyào huáiyí zìjǐ de nénglì."}, {"front": "值得", "back": "đáng, xứng đáng", "ex": "这本书很值得看。\n为这件事生气不值得。", "ex_vi": "Cuốn sách này rất đáng đọc.\nTức giận vì chuyện này không đáng.", "pron": "zhídé", "img": "", "group": "List 09", "ex_py": "Zhè běn shū hěn zhídé kàn.\nWèi zhè jiàn shì shēngqì bù zhídé."}, {"front": "小偷", "back": "kẻ trộm", "ex": "小偷偷走了我的钱包。\n坐地铁时要小心小偷。", "ex_vi": "Kẻ trộm lấy mất ví của tôi.\nKhi đi tàu điện ngầm phải cẩn thận kẻ trộm.", "pron": "xiǎotōu", "img": "", "group": "List 09", "ex_py": "Xiǎotōu tōuzǒu le wǒ de qiánbāo.\nZuò dìtiě shí yào xiǎoxīn xiǎotōu."}, {"front": "借", "back": "mượn; cho mượn", "ex": "我可以借你的笔用一下吗？\n我从图书馆借了两本书。", "ex_vi": "Tôi mượn bút của bạn một chút được không?\nTôi mượn hai cuốn sách từ thư viện.", "pron": "jiè", "img": "", "group": "List 09", "ex_py": "Wǒ kěyǐ jiè nǐ de bǐ yòng yíxià ma?\nWǒ cóng túshūguǎn jiè le liǎng běn shū."}, {"front": "时尚", "back": "thời trang, hợp mốt", "ex": "她穿得很时尚。\n这是今年最时尚的颜色。", "ex_vi": "Cô ấy ăn mặc rất thời trang.\nĐây là màu thời thượng nhất năm nay.", "pron": "shíshàng", "img": "", "group": "List 09", "ex_py": "Tā chuān de hěn shíshàng.\nZhè shì jīnnián zuì shíshàng de yánsè."}, {"front": "杂志", "back": "tạp chí", "ex": "我每个月买一本杂志。\n这本杂志上有很多照片。", "ex_vi": "Mỗi tháng tôi mua một cuốn tạp chí.\nTạp chí này có rất nhiều ảnh.", "pron": "zázhì", "img": "", "group": "List 09", "ex_py": "Wǒ měi ge yuè mǎi yì běn zázhì.\nZhè běn zázhì shàng yǒu hěn duō zhàopiān."}, {"front": "忽然", "back": "đột nhiên", "ex": "天忽然下起雨来了。\n他忽然想起一件事。", "ex_vi": "Trời đột nhiên đổ mưa.\nAnh ấy đột nhiên nhớ ra một chuyện.", "pron": "hūrán", "img": "", "group": "List 09", "ex_py": "Tiān hūrán xià qǐ yǔ lái le.\nTā hūrán xiǎngqǐ yí jiàn shì."}, {"front": "相反", "back": "trái ngược, ngược lại", "ex": "他的看法和我的完全相反。\n他没生气，相反，他笑了。", "ex_vi": "Quan điểm của anh ấy hoàn toàn trái ngược với tôi.\nAnh ấy không giận, ngược lại còn cười.", "pron": "xiāngfǎn", "img": "", "group": "List 10", "ex_py": "Tā de kànfǎ hé wǒ de wánquán xiāngfǎn.\nTā méi shēngqì, xiāngfǎn, tā xiào le."}, {"front": "笨人", "back": "người ngốc, người khờ", "ex": "我不是笨人，只是需要更多时间。\n笨人也有笨办法。", "ex_vi": "Tôi không phải người ngốc, chỉ là cần thêm thời gian.\nNgười vụng cũng có cách của người vụng.", "pron": "bèn rén", "img": "", "group": "List 10", "ex_py": "Wǒ búshì bènrén, zhǐshì xūyào gèng duō shíjiān.\nBènrén yě yǒu bèn bànfǎ."}, {"front": "解释", "back": "giải thích", "ex": "请你解释一下这个词。\n他向老师解释了迟到的原因。", "ex_vi": "Bạn giải thích từ này giúp tôi.\nAnh ấy giải thích với thầy lý do đến muộn.", "pron": "jiěshì", "img": "", "group": "List 10", "ex_py": "Qǐng nǐ jiěshì yíxià zhège cí.\nTā xiàng lǎoshī jiěshì le chídào de yuányīn."}, {"front": "暂时", "back": "tạm thời", "ex": "他暂时住在朋友家。\n这个问题暂时解决不了。", "ex_vi": "Anh ấy tạm thời ở nhà bạn.\nVấn đề này tạm thời chưa giải quyết được.", "pron": "zànshí", "img": "", "group": "List 10", "ex_py": "Tā zànshí zhù zài péngyou jiā.\nZhège wèntí zànshí jiějué bù liǎo."}, {"front": "考虑", "back": "suy nghĩ, cân nhắc", "ex": "让我考虑一下。\n你要考虑清楚再决定。", "ex_vi": "Để tôi cân nhắc một chút.\nBạn phải suy nghĩ kỹ rồi hãy quyết định.", "pron": "kǎolǜ", "img": "", "group": "List 10", "ex_py": "Ràng wǒ kǎolǜ yíxià.\nNǐ yào kǎolǜ qīngchu zài juédìng."}, {"front": "至少", "back": "ít nhất", "ex": "每天至少要喝八杯水。\n从这儿到机场至少要一个小时。", "ex_vi": "Mỗi ngày phải uống ít nhất tám cốc nước.\nTừ đây ra sân bay ít nhất mất một tiếng.", "pron": "zhìshǎo", "img": "", "group": "List 10", "ex_py": "Měitiān zhìshǎo yào hē bā bēi shuǐ.\nCóng zhèr dào jīchǎng zhìshǎo yào yí ge xiǎoshí."}, {"front": "困难", "back": "khó khăn", "ex": "遇到困难不要放弃。\n学汉字对我来说有点儿困难。", "ex_vi": "Gặp khó khăn đừng bỏ cuộc.\nHọc chữ Hán với tôi hơi khó.", "pron": "kùnnan", "img": "", "group": "List 10", "ex_py": "Yùdào kùnnan búyào fàngqì.\nXué Hànzì duì wǒ láishuō yǒudiǎnr kùnnan."}, {"front": "弄完后", "back": "sau khi làm xong", "ex": "作业弄完后我们去吃饭。\n弄完后记得关电脑。", "ex_vi": "Làm xong bài tập rồi chúng ta đi ăn.\nLàm xong nhớ tắt máy tính.", "pron": "nòng wán hòu", "img": "", "group": "List 10", "ex_py": "Zuòyè nòng wán hòu wǒmen qù chīfàn.\nNòng wán hòu jìde guān diànnǎo."}, {"front": "今晚", "back": "tối nay", "ex": "今晚你有空吗？\n今晚我们去看电影吧。", "ex_vi": "Tối nay bạn rảnh không?\nTối nay chúng ta đi xem phim nhé.", "pron": "jīnwǎn", "img": "", "group": "List 10", "ex_py": "Jīnwǎn nǐ yǒu kòng ma?\nJīnwǎn wǒmen qù kàn diànyǐng ba."}, {"front": "票", "back": "vé", "ex": "我买了两张电影票。\n火车票在网上就能买。", "ex_vi": "Tôi đã mua hai vé xem phim.\nVé tàu mua trên mạng là được.", "pron": "piào", "img": "", "group": "List 10", "ex_py": "Wǒ mǎi le liǎng zhāng diànyǐngpiào.\nHuǒchēpiào zài wǎngshàng jiù néng mǎi."}, {"front": "浪费", "back": "lãng phí", "ex": "不要浪费粮食。\n玩手机太浪费时间了。", "ex_vi": "Đừng lãng phí lương thực.\nChơi điện thoại quá lãng phí thời gian.", "pron": "làngfèi", "img": "", "group": "List 11", "ex_py": "Búyào làngfèi liángshí.\nWán shǒujī tài làngfèi shíjiān le."}, {"front": "邀请", "back": "mời; lời mời", "ex": "谢谢你的邀请。\n他邀请我参加他的生日晚会。", "ex_vi": "Cảm ơn lời mời của bạn.\nAnh ấy mời tôi dự tiệc sinh nhật.", "pron": "yāoqǐng", "img": "", "group": "List 11", "ex_py": "Xièxie nǐ de yāoqǐng.\nTā yāoqǐng wǒ cānjiā tā de shēngrì wǎnhuì."}, {"front": "精彩", "back": "đặc sắc, hấp dẫn, tuyệt vời", "ex": "昨天的比赛非常精彩。\n他的演讲很精彩。", "ex_vi": "Trận đấu hôm qua cực kỳ hấp dẫn.\nBài diễn thuyết của anh ấy rất hay.", "pron": "jīngcǎi", "img": "", "group": "List 11", "ex_py": "Zuótiān de bǐsài fēicháng jīngcǎi.\nTā de yǎnjiǎng hěn jīngcǎi."}, {"front": "否则", "back": "nếu không thì", "ex": "快点儿走，否则会迟到。\n你得多练习，否则考不好。", "ex_vi": "Đi nhanh lên, nếu không sẽ muộn.\nBạn phải luyện nhiều, nếu không thì thi không tốt.", "pron": "fǒuzé", "img": "", "group": "List 11", "ex_py": "Kuàidiǎnr zǒu, fǒuzé huì chídào.\nNǐ děi duō liànxí, fǒuzé kǎo bù hǎo."}, {"front": "课外", "back": "ngoại khóa, ngoài giờ học", "ex": "我课外喜欢打羽毛球。\n学校有很多课外活动。", "ex_vi": "Ngoài giờ học tôi thích chơi cầu lông.\nTrường có nhiều hoạt động ngoại khóa.", "pron": "kèwài", "img": "", "group": "List 11", "ex_py": "Wǒ kèwài xǐhuan dǎ yǔmáoqiú.\nXuéxiào yǒu hěn duō kèwài huódòng."}, {"front": "养成", "back": "hình thành (thói quen)", "ex": "要养成早睡早起的习惯。\n他养成了每天看书的习惯。", "ex_vi": "Phải tập thói quen ngủ sớm dậy sớm.\nAnh ấy đã hình thành thói quen đọc sách mỗi ngày.", "pron": "yǎngchéng", "img": "", "group": "List 11", "ex_py": "Yào yǎngchéng zǎoshuì zǎoqǐ de xíguàn.\nTā yǎngchéng le měitiān kànshū de xíguàn."}, {"front": "咳嗽", "back": "ho", "ex": "他感冒了，一直咳嗽。\n咳嗽的时候要多喝热水。", "ex_vi": "Anh ấy bị cảm, ho suốt.\nKhi ho nên uống nhiều nước nóng.", "pron": "késou", "img": "", "group": "List 11", "ex_py": "Tā gǎnmào le, yìzhí késou.\nKésou de shíhou yào duō hē rèshuǐ."}, {"front": "羽毛球", "back": "cầu lông", "ex": "周末我们去打羽毛球吧。\n她羽毛球打得很好。", "ex_vi": "Cuối tuần mình đi đánh cầu lông nhé.\nCô ấy đánh cầu lông rất giỏi.", "pron": "yǔmáoqiú", "img": "", "group": "List 11", "ex_py": "Zhōumò wǒmen qù dǎ yǔmáoqiú ba.\nTā yǔmáoqiú dǎ de hěn hǎo."}, {"front": "丢了", "back": "mất, đánh mất", "ex": "我的手机丢了。\n他把钥匙弄丢了。", "ex_vi": "Điện thoại của tôi mất rồi.\nAnh ấy làm mất chìa khóa rồi.", "pron": "diū le", "img": "", "group": "List 11", "ex_py": "Wǒ de shǒujī diū le.\nTā bǎ yàoshi nòng diū le."}, {"front": "书包", "back": "cặp sách", "ex": "我的书包很重。\n妈妈给我买了一个新书包。", "ex_vi": "Cặp sách của tôi rất nặng.\nMẹ mua cho tôi một chiếc cặp mới.", "pron": "shūbāo", "img": "", "group": "List 11", "ex_py": "Wǒ de shūbāo hěn zhòng.\nMāma gěi wǒ mǎi le yí ge xīn shūbāo."}, {"front": "钥匙", "back": "chìa khóa", "ex": "你看见我的钥匙了吗？\n出门别忘了带钥匙。", "ex_vi": "Bạn có thấy chìa khóa của tôi không?\nRa ngoài đừng quên mang chìa khóa.", "pron": "yàoshi", "img": "", "group": "List 12", "ex_py": "Nǐ kànjiàn wǒ de yàoshi le ma?\nChūmén bié wàng le dài yàoshi."}, {"front": "尽管", "back": "mặc dù", "ex": "尽管很累，他还是坚持工作。\n尽管下雨，比赛还是照常进行。", "ex_vi": "Mặc dù rất mệt, anh ấy vẫn cố làm việc.\nMặc dù mưa, trận đấu vẫn diễn ra như bình thường.", "pron": "jǐnguǎn", "img": "", "group": "List 12", "ex_py": "Jǐnguǎn hěn lèi, tā háishi jiānchí gōngzuò.\nJǐnguǎn xiàyǔ, bǐsài háishi zhàocháng jìnxíng."}, {"front": "年龄", "back": "tuổi tác", "ex": "学习不分年龄。\n请写上你的姓名和年龄。", "ex_vi": "Học tập không phân biệt tuổi tác.\nHãy ghi họ tên và tuổi của bạn.", "pron": "niánlíng", "img": "", "group": "List 12", "ex_py": "Xuéxí bù fēn niánlíng.\nQǐng xiě shàng nǐ de xìngmíng hé niánlíng."}, {"front": "认识", "back": "nhận thức, sự hiểu biết; quen biết", "ex": "他对这个问题的认识很深。\n很高兴认识你。", "ex_vi": "Anh ấy hiểu vấn đề này rất sâu.\nRất vui được quen bạn.", "pron": "rènshi", "img": "", "group": "List 12", "ex_py": "Tā duì zhège wèntí de rènshi hěn shēn.\nHěn gāoxìng rènshi nǐ."}, {"front": "名人", "back": "người nổi tiếng", "ex": "很多名人都来参加了晚会。\n他想成为一个名人。", "ex_vi": "Nhiều người nổi tiếng đã đến dự buổi tiệc.\nAnh ấy muốn trở thành người nổi tiếng.", "pron": "míngrén", "img": "", "group": "List 12", "ex_py": "Hěn duō míngrén dōu lái cānjiā le wǎnhuì.\nTā xiǎng chéngwéi yí ge míngrén."}, {"front": "照镜子", "back": "soi gương", "ex": "她出门前总是照镜子。\n照镜子的时候，我发现自己瘦了。", "ex_vi": "Cô ấy luôn soi gương trước khi ra ngoài.\nKhi soi gương, tôi thấy mình gầy đi.", "pron": "zhào jìngzi", "img": "", "group": "List 12", "ex_py": "Tā chūmén qián zǒngshì zhào jìngzi.\nZhào jìngzi de shíhou, wǒ fāxiàn zìjǐ shòu le."}, {"front": "富有", "back": "giàu có", "ex": "他虽然很富有，但是不快乐。\n这是一个富有的国家。", "ex_vi": "Tuy rất giàu nhưng anh ấy không vui.\nĐây là một quốc gia giàu có.", "pron": "fùyǒu", "img": "", "group": "List 12", "ex_py": "Tā suīrán hěn fùyǒu, dànshì bú kuàilè.\nZhè shì yí ge fùyǒu de guójiā."}, {"front": "仔细", "back": "kỹ, cẩn thận", "ex": "请仔细检查一遍。\n他做事很仔细。", "ex_vi": "Xin hãy kiểm tra kỹ một lượt.\nAnh ấy làm việc rất cẩn thận.", "pron": "zǐxì", "img": "", "group": "List 12", "ex_py": "Qǐng zǐxì jiǎnchá yí biàn.\nTā zuòshì hěn zǐxì."}, {"front": "在…之前", "back": "trước khi…", "ex": "在睡觉之前，我喜欢看书。\n在出发之前，请检查一下行李。", "ex_vi": "Trước khi ngủ, tôi thích đọc sách.\nTrước khi xuất phát, hãy kiểm tra hành lý.", "pron": "zài… zhīqián", "img": "", "group": "List 12", "ex_py": "Zài shuìjiào zhīqián, wǒ xǐhuan kànshū.\nZài chūfā zhīqián, qǐng jiǎnchá yíxià xíngli."}, {"front": "说明书", "back": "sách hướng dẫn sử dụng", "ex": "用之前请先看说明书。\n说明书上写得很清楚。", "ex_vi": "Trước khi dùng hãy đọc hướng dẫn sử dụng.\nTrong sách hướng dẫn ghi rất rõ.", "pron": "shuōmíngshū", "img": "", "group": "List 12", "ex_py": "Yòng zhīqián qǐng xiān kàn shuōmíngshū.\nShuōmíngshū shàng xiě de hěn qīngchu."}, {"front": "表现", "back": "thể hiện; biểu hiện, phong độ", "ex": "他在比赛中表现得很好。\n老师表扬了她的表现。", "ex_vi": "Anh ấy thể hiện rất tốt trong trận đấu.\nCô giáo khen phong độ của cô ấy.", "pron": "biǎoxiàn", "img": "", "group": "List 13", "ex_py": "Tā zài bǐsài zhōng biǎoxiàn de hěn hǎo.\nLǎoshī biǎoyáng le tā de biǎoxiàn."}, {"front": "第一章", "back": "chương một (chương đầu)", "ex": "请大家打开书，看第一章。\n我只看完了第一章。", "ex_vi": "Mọi người mở sách, xem chương một.\nTôi mới đọc xong chương đầu.", "pron": "dì yī zhāng", "img": "", "group": "List 13", "ex_py": "Qǐng dàjiā dǎkāi shū, kàn dì yī zhāng.\nWǒ zhǐ kànwán le dì yī zhāng."}, {"front": "布置", "back": "bố trí, sắp xếp; giao (bài tập)", "ex": "老师布置了很多作业。\n房间布置得很漂亮。", "ex_vi": "Thầy giao rất nhiều bài tập.\nCăn phòng được bày trí rất đẹp.", "pron": "bùzhì", "img": "", "group": "List 13", "ex_py": "Lǎoshī bùzhì le hěn duō zuòyè.\nFángjiān bùzhì de hěn piàoliang."}, {"front": "响了", "back": "reo, kêu lên", "ex": "电话响了，快去接。\n闹钟响了好几次，他还没起床。", "ex_vi": "Điện thoại reo rồi, mau đi nghe.\nĐồng hồ báo thức reo mấy lần mà anh ấy vẫn chưa dậy.", "pron": "xiǎng le", "img": "", "group": "List 13", "ex_py": "Diànhuà xiǎng le, kuài qù jiē.\nNàozhōng xiǎng le hǎo jǐ cì, tā hái méi qǐchuáng."}, {"front": "强调", "back": "nhấn mạnh", "ex": "老师强调了这个语法的重要性。\n他一再强调要准时。", "ex_vi": "Thầy nhấn mạnh tầm quan trọng của ngữ pháp này.\nAnh ấy nhiều lần nhấn mạnh phải đúng giờ.", "pron": "qiángdiào", "img": "", "group": "List 13", "ex_py": "Lǎoshī qiángdiào le zhège yǔfǎ de zhòngyàoxìng.\nTā yízài qiángdiào yào zhǔnshí."}, {"front": "到达", "back": "đến, tới nơi", "ex": "飞机下午三点到达北京。\n到达以后给我打个电话。", "ex_vi": "Máy bay đến Bắc Kinh lúc 3 giờ chiều.\nĐến nơi rồi gọi điện cho tôi.", "pron": "dàodá", "img": "", "group": "List 13", "ex_py": "Fēijī xiàwǔ sān diǎn dàodá Běijīng.\nDàodá yǐhòu gěi wǒ dǎ ge diànhuà."}, {"front": "…与…的关系", "back": "quan hệ giữa… và… (vd: 条件与结果)", "ex": "这句话表示条件与结果的关系。\n健康与运动的关系很密切。", "ex_vi": "Câu này biểu thị quan hệ điều kiện – kết quả.\nSức khỏe và vận động có quan hệ mật thiết.", "pron": "… yǔ … de guānxi", "img": "", "group": "List 13", "ex_py": "Zhè jù huà biǎoshì tiáojiàn yǔ jiéguǒ de guānxi.\nJiànkāng yǔ yùndòng de guānxi hěn mìqiè."}, {"front": "预期", "back": "kỳ vọng, dự kiến", "ex": "结果比预期的好。\n这次考试没有达到我的预期。", "ex_vi": "Kết quả tốt hơn dự kiến.\nKỳ thi này không đạt kỳ vọng của tôi.", "pron": "yùqī", "img": "", "group": "List 13", "ex_py": "Jiéguǒ bǐ yùqī de hǎo.\nZhè cì kǎoshì méiyǒu dádào wǒ de yùqī."}, {"front": "推测", "back": "suy đoán", "ex": "我推测他今天不会来了。\n根据天气，可以推测明天会下雨。", "ex_vi": "Tôi đoán hôm nay anh ấy sẽ không đến.\nDựa vào thời tiết có thể đoán mai sẽ mưa.", "pron": "tuīcè", "img": "", "group": "List 13", "ex_py": "Wǒ tuīcè tā jīntiān búhuì lái le.\nGēnjù tiānqì, kěyǐ tuīcè míngtiān huì xiàyǔ."}, {"front": "可能性", "back": "khả năng", "ex": "他来的可能性很小。\n这种可能性不是没有。", "ex_vi": "Khả năng anh ấy đến rất thấp.\nKhả năng này không phải là không có.", "pron": "kěnéngxìng", "img": "", "group": "List 13", "ex_py": "Tā lái de kěnéngxìng hěn xiǎo.\nZhè zhǒng kěnéngxìng búshì méiyǒu."}, {"front": "上台", "back": "lên sân khấu", "ex": "轮到你上台表演了。\n他第一次上台很紧张。", "ex_vi": "Đến lượt bạn lên sân khấu biểu diễn rồi.\nLần đầu lên sân khấu anh ấy rất hồi hộp.", "pron": "shàngtái", "img": "", "group": "List 14", "ex_py": "Lúndào nǐ shàngtái biǎoyǎn le.\nTā dì yī cì shàngtái hěn jǐnzhāng."}, {"front": "大概", "back": "khoảng, đại khái; có lẽ", "ex": "从这儿到学校大概要二十分钟。\n他大概不知道这件事。", "ex_vi": "Từ đây đến trường mất khoảng 20 phút.\nCó lẽ anh ấy không biết chuyện này.", "pron": "dàgài", "img": "", "group": "List 14", "ex_py": "Cóng zhèr dào xuéxiào dàgài yào èrshí fēnzhōng.\nTā dàgài bù zhīdao zhè jiàn shì."}, {"front": "校长", "back": "hiệu trưởng", "ex": "校长在开学典礼上讲话。\n我们的校长很年轻。", "ex_vi": "Hiệu trưởng phát biểu trong lễ khai giảng.\nHiệu trưởng của chúng tôi rất trẻ.", "pron": "xiàozhǎng", "img": "", "group": "List 14", "ex_py": "Xiàozhǎng zài kāixué diǎnlǐ shàng jiǎnghuà.\nWǒmen de xiàozhǎng hěn niánqīng."}, {"front": "短", "back": "ngắn", "ex": "她把头发剪短了。\n冬天白天短，晚上长。", "ex_vi": "Cô ấy cắt tóc ngắn rồi.\nMùa đông ngày ngắn đêm dài.", "pron": "duǎn", "img": "", "group": "List 14", "ex_py": "Tā bǎ tóufa jiǎn duǎn le.\nDōngtiān báitiān duǎn, wǎnshang cháng."}, {"front": "进行", "back": "tiến hành (+ 研究 / 讨论…)", "ex": "科学家对这个问题进行了研究。\n会议正在进行。", "ex_vi": "Các nhà khoa học đã tiến hành nghiên cứu vấn đề này.\nCuộc họp đang diễn ra.", "pron": "jìnxíng", "img": "", "group": "List 14", "ex_py": "Kēxuéjiā duì zhège wèntí jìnxíng le yánjiū.\nHuìyì zhèngzài jìnxíng."}, {"front": "对…进行检查", "back": "tiến hành kiểm tra (cái gì / ai)", "ex": "医生对他进行了全面检查。\n我们要对机器进行检查。", "ex_vi": "Bác sĩ đã kiểm tra toàn diện cho anh ấy.\nChúng ta cần tiến hành kiểm tra máy móc.", "pron": "duì… jìnxíng jiǎnchá", "img": "", "group": "List 14", "ex_py": "Yīshēng duì tā jìnxíng le quánmiàn jiǎnchá.\nWǒmen yào duì jīqì jìnxíng jiǎnchá."}, {"front": "快速", "back": "nhanh chóng", "ex": "中国经济快速发展。\n他快速地吃完了早饭。", "ex_vi": "Kinh tế Trung Quốc phát triển nhanh chóng.\nAnh ấy ăn sáng xong thật nhanh.", "pron": "kuàisù", "img": "", "group": "List 14", "ex_py": "Zhōngguó jīngjì kuàisù fāzhǎn.\nTā kuàisù de chīwán le zǎofàn."}, {"front": "电影艺术节", "back": "liên hoan nghệ thuật điện ảnh", "ex": "这部电影在电影艺术节上获了奖。\n很多明星来参加电影艺术节。", "ex_vi": "Bộ phim này đoạt giải ở liên hoan nghệ thuật điện ảnh.\nNhiều ngôi sao đến dự liên hoan điện ảnh.", "pron": "diànyǐng yìshùjié", "img": "", "group": "List 14", "ex_py": "Zhè bù diànyǐng zài diànyǐng yìshùjié shàng huò le jiǎng.\nHěn duō míngxīng lái cānjiā diànyǐng yìshùjié."}, {"front": "记者", "back": "nhà báo, phóng viên", "ex": "记者采访了那位作家。\n她的理想是当一名记者。", "ex_vi": "Phóng viên đã phỏng vấn nhà văn đó.\nƯớc mơ của cô ấy là làm nhà báo.", "pron": "jìzhě", "img": "", "group": "List 14", "ex_py": "Jìzhě cǎifǎng le nà wèi zuòjiā.\nTā de lǐxiǎng shì dāng yì míng jìzhě."}, {"front": "受", "back": "nhận, chịu, bị (≠ 爱 ài: yêu)", "ex": "这本书很受欢迎。\n他受了一点儿伤。", "ex_vi": "Cuốn sách này rất được yêu thích.\nAnh ấy bị thương nhẹ.", "pron": "shòu", "img": "", "group": "List 14", "ex_py": "Zhè běn shū hěn shòu huānyíng.\nTā shòu le yìdiǎnr shāng."}, {"front": "干得漂亮", "back": "làm tốt lắm", "ex": "干得漂亮！我们赢了！\n老板说：“这次干得漂亮！”", "ex_vi": "Làm tốt lắm! Chúng ta thắng rồi!\nSếp nói: “Lần này làm tốt lắm!”", "pron": "gàn de piàoliang", "img": "", "group": "List 15", "ex_py": "Gàn de piàoliang! Wǒmen yíng le!\nLǎobǎn shuō: “Zhè cì gàn de piàoliang!”"}, {"front": "基础", "back": "nền tảng, cơ sở", "ex": "他的汉语基础很好。\n学好语法是写作的基础。", "ex_vi": "Nền tảng tiếng Trung của anh ấy rất tốt.\nHọc tốt ngữ pháp là nền tảng của viết.", "pron": "jīchǔ", "img": "", "group": "List 15", "ex_py": "Tā de Hànyǔ jīchǔ hěn hǎo.\nXuéhǎo yǔfǎ shì xiězuò de jīchǔ."}, {"front": "海洋", "back": "đại dương, biển cả", "ex": "海洋里有很多动物。\n我们要保护海洋环境。", "ex_vi": "Trong đại dương có rất nhiều động vật.\nChúng ta phải bảo vệ môi trường biển.", "pron": "hǎiyáng", "img": "", "group": "List 15", "ex_py": "Hǎiyáng lǐ yǒu hěn duō dòngwù.\nWǒmen yào bǎohù hǎiyáng huánjìng."}, {"front": "推迟", "back": "hoãn lại, lùi lại", "ex": "因为下雨，比赛推迟了。\n会议推迟到下周一。", "ex_vi": "Vì trời mưa, trận đấu bị hoãn.\nCuộc họp lùi sang thứ Hai tuần sau.", "pron": "tuīchí", "img": "", "group": "List 15", "ex_py": "Yīnwèi xiàyǔ, bǐsài tuīchí le.\nHuìyì tuīchí dào xià zhōuyī."}, {"front": "广播", "back": "phát thanh, phát sóng; loa thông báo", "ex": "我每天早上听广播。\n机场广播说飞机晚点了。", "ex_vi": "Sáng nào tôi cũng nghe đài.\nLoa sân bay thông báo máy bay bị trễ.", "pron": "guǎngbō", "img": "", "group": "List 15", "ex_py": "Wǒ měitiān zǎoshang tīng guǎngbō.\nJīchǎng guǎngbō shuō fēijī wǎndiǎn le."}, {"front": "恐怕", "back": "e rằng, sợ rằng", "ex": "恐怕明天要下雨。\n我恐怕不能参加你的婚礼了。", "ex_vi": "E rằng mai sẽ mưa.\nE là tôi không dự đám cưới bạn được.", "pron": "kǒngpà", "img": "", "group": "List 15", "ex_py": "Kǒngpà míngtiān yào xiàyǔ.\nWǒ kǒngpà bùnéng cānjiā nǐ de hūnlǐ le."}, {"front": "蓝", "back": "màu xanh lam", "ex": "今天的天特别蓝。\n我喜欢那件蓝色的衣服。", "ex_vi": "Hôm nay trời xanh đặc biệt.\nTôi thích cái áo màu xanh lam kia.", "pron": "lán", "img": "", "group": "List 15", "ex_py": "Jīntiān de tiān tèbié lán.\nWǒ xǐhuan nà jiàn lánsè de yīfu."}, {"front": "工具", "back": "công cụ, dụng cụ", "ex": "手机是很重要的工具。\n修车需要一些工具。", "ex_vi": "Điện thoại là công cụ rất quan trọng.\nSửa xe cần một số dụng cụ.", "pron": "gōngjù", "img": "", "group": "List 15", "ex_py": "Shǒujī shì hěn zhòngyào de gōngjù.\nXiūchē xūyào yìxiē gōngjù."}, {"front": "收", "back": "nhận, thu", "ex": "你收到我的邮件了吗？\n这家店不收现金。", "ex_vi": "Bạn nhận được email của tôi chưa?\nCửa hàng này không nhận tiền mặt.", "pron": "shōu", "img": "", "group": "List 15", "ex_py": "Nǐ shōudào wǒ de yóujiàn le ma?\nZhè jiā diàn bù shōu xiànjīn."}, {"front": "温度", "back": "nhiệt độ", "ex": "今天的温度是三十度。\n晚上温度会降低。", "ex_vi": "Nhiệt độ hôm nay là 30 độ.\nBuổi tối nhiệt độ sẽ giảm.", "pron": "wēndù", "img": "", "group": "List 15", "ex_py": "Jīntiān de wēndù shì sānshí dù.\nWǎnshang wēndù huì jiàngdī."}, {"front": "到底", "back": "rốt cuộc, cuối cùng", "ex": "你到底想说什么？\n这件事到底是谁做的？", "ex_vi": "Rốt cuộc bạn muốn nói gì?\nRốt cuộc việc này là ai làm?", "pron": "dàodǐ", "img": "", "group": "List 16", "ex_py": "Nǐ dàodǐ xiǎng shuō shénme?\nZhè jiàn shì dàodǐ shì shuí zuò de?"}, {"front": "抱歉", "back": "xin lỗi, áy náy", "ex": "很抱歉，我来晚了。\n让你久等了，真抱歉。", "ex_vi": "Rất xin lỗi, tôi đến muộn.\nĐể bạn đợi lâu, thật áy náy.", "pron": "bàoqiàn", "img": "", "group": "List 16", "ex_py": "Hěn bàoqiàn, wǒ lái wǎn le.\nRàng nǐ jiǔ děng le, zhēn bàoqiàn."}, {"front": "慢", "back": "chậm", "ex": "请你说慢一点儿。\n我的电脑太慢了。", "ex_vi": "Bạn nói chậm một chút nhé.\nMáy tính của tôi chậm quá.", "pron": "màn", "img": "", "group": "List 16", "ex_py": "Qǐng nǐ shuō màn yìdiǎnr.\nWǒ de diànnǎo tài màn le."}, {"front": "脏", "back": "bẩn", "ex": "你的衣服脏了，快换一件吧。\n房间太脏了，需要打扫。", "ex_vi": "Áo bạn bẩn rồi, mau thay cái khác.\nPhòng bẩn quá, cần dọn dẹp.", "pron": "zāng", "img": "", "group": "List 16", "ex_py": "Nǐ de yīfu zāng le, kuài huàn yí jiàn ba.\nFángjiān tài zāng le, xūyào dǎsǎo."}, {"front": "乱", "back": "lộn xộn, bừa bộn", "ex": "他的桌子上很乱。\n东西不要乱放。", "ex_vi": "Bàn của anh ấy rất bừa bộn.\nĐừng để đồ đạc lung tung.", "pron": "luàn", "img": "", "group": "List 16", "ex_py": "Tā de zhuōzi shàng hěn luàn.\nDōngxi búyào luàn fàng."}, {"front": "打扫", "back": "quét dọn, dọn dẹp", "ex": "周末我要打扫房间。\n教室已经打扫干净了。", "ex_vi": "Cuối tuần tôi phải dọn phòng.\nLớp học đã được quét dọn sạch sẽ.", "pron": "dǎsǎo", "img": "", "group": "List 16", "ex_py": "Zhōumò wǒ yào dǎsǎo fángjiān.\nJiàoshì yǐjīng dǎsǎo gānjìng le."}, {"front": "整理", "back": "sắp xếp, thu dọn cho ngăn nắp", "ex": "我要整理一下我的书。\n出发前请整理好行李。", "ex_vi": "Tôi phải sắp xếp lại sách của mình.\nTrước khi đi hãy sắp xếp hành lý xong.", "pron": "zhěnglǐ", "img": "", "group": "List 16", "ex_py": "Wǒ yào zhěnglǐ yíxià wǒ de shū.\nChūfā qián qǐng zhěnglǐ hǎo xíngli."}, {"front": "字典", "back": "từ điển (tra chữ)", "ex": "这个字我不认识，查一下字典吧。\n我买了一本新字典。", "ex_vi": "Chữ này tôi không biết, tra từ điển xem.\nTôi mua một cuốn từ điển mới.", "pron": "zìdiǎn", "img": "", "group": "List 16", "ex_py": "Zhège zì wǒ bú rènshi, chá yíxià zìdiǎn ba.\nWǒ mǎi le yì běn xīn zìdiǎn."}, {"front": "词典", "back": "từ điển (tra từ)", "ex": "学汉语需要一本好词典。\n可以借我你的词典吗？", "ex_vi": "Học tiếng Trung cần một cuốn từ điển tốt.\nCho tôi mượn từ điển của bạn được không?", "pron": "cídiǎn", "img": "", "group": "List 16", "ex_py": "Xué Hànyǔ xūyào yì běn hǎo cídiǎn.\nKěyǐ jiè wǒ nǐ de cídiǎn ma?"}, {"front": "长满", "back": "mọc đầy, phủ kín", "ex": "院子里长满了花。\n山上长满了树。", "ex_vi": "Trong sân mọc đầy hoa.\nTrên núi phủ đầy cây.", "pron": "zhǎngmǎn", "img": "", "group": "List 16", "ex_py": "Yuànzi lǐ zhǎngmǎn le huā.\nShānshàng zhǎngmǎn le shù."}, {"front": "墙", "back": "bức tường", "ex": "墙上挂着一张照片。\n墙上长满了绿色的植物。", "ex_vi": "Trên tường treo một bức ảnh.\nTrên tường mọc đầy cây xanh.", "pron": "qiáng", "img": "", "group": "List 17", "ex_py": "Qiángshàng guàzhe yì zhāng zhàopiān.\nQiángshàng zhǎngmǎn le lǜsè de zhíwù."}, {"front": "厚", "back": "dày", "ex": "这本书很厚。\n天冷了，穿厚一点儿。", "ex_vi": "Cuốn sách này rất dày.\nTrời lạnh rồi, mặc dày một chút.", "pron": "hòu", "img": "", "group": "List 17", "ex_py": "Zhè běn shū hěn hòu.\nTiān lěng le, chuān hòu yìdiǎnr."}, {"front": "季节", "back": "mùa", "ex": "你最喜欢哪个季节？\n秋天是北京最好的季节。", "ex_vi": "Bạn thích mùa nào nhất?\nMùa thu là mùa đẹp nhất ở Bắc Kinh.", "pron": "jìjié", "img": "", "group": "List 17", "ex_py": "Nǐ zuì xǐhuan nǎge jìjié?\nQiūtiān shì Běijīng zuìhǎo de jìjié."}, {"front": "冷静", "back": "bình tĩnh", "ex": "遇到问题要冷静。\n你先冷静一下，再说。", "ex_vi": "Gặp vấn đề phải bình tĩnh.\nBạn bình tĩnh lại đã rồi hãy nói.", "pron": "lěngjìng", "img": "", "group": "List 17", "ex_py": "Yùdào wèntí yào lěngjìng.\nNǐ xiān lěngjìng yíxià, zài shuō."}, {"front": "成熟", "back": "chín chắn, trưởng thành; chín (quả)", "ex": "他比以前成熟多了。\n苹果已经成熟了。", "ex_vi": "Anh ấy chín chắn hơn trước nhiều.\nTáo đã chín rồi.", "pron": "chéngshú", "img": "", "group": "List 17", "ex_py": "Tā bǐ yǐqián chéngshú duō le.\nPíngguǒ yǐjīng chéngshú le."}, {"front": "管理", "back": "quản lý", "ex": "他负责管理这个公司。\n我要学会管理时间。", "ex_vi": "Anh ấy phụ trách quản lý công ty này.\nTôi phải học cách quản lý thời gian.", "pron": "guǎnlǐ", "img": "", "group": "List 17", "ex_py": "Tā fùzé guǎnlǐ zhège gōngsī.\nWǒ yào xuéhuì guǎnlǐ shíjiān."}, {"front": "批评", "back": "phê bình", "ex": "他因为迟到被老师批评了。\n我们要接受别人的批评。", "ex_vi": "Anh ấy bị thầy phê bình vì đến muộn.\nChúng ta phải tiếp nhận phê bình của người khác.", "pron": "pīpíng", "img": "", "group": "List 17", "ex_py": "Tā yīnwèi chídào bèi lǎoshī pīpíng le.\nWǒmen yào jiēshòu biérén de pīpíng."}, {"front": "难受", "back": "khó chịu; buồn", "ex": "我头疼，很难受。\n听到这个消息，她心里很难受。", "ex_vi": "Tôi đau đầu, rất khó chịu.\nNghe tin này, trong lòng cô ấy rất buồn.", "pron": "nánshòu", "img": "", "group": "List 17", "ex_py": "Wǒ tóuténg, hěn nánshòu.\nTīngdào zhège xiāoxi, tā xīnli hěn nánshòu."}, {"front": "赢", "back": "thắng", "ex": "我们赢了这场比赛。\n你觉得哪个队会赢？", "ex_vi": "Chúng tôi đã thắng trận này.\nBạn nghĩ đội nào sẽ thắng?", "pron": "yíng", "img": "", "group": "List 17", "ex_py": "Wǒmen yíng le zhè chǎng bǐsài.\nNǐ juéde nǎge duì huì yíng?"}, {"front": "游戏", "back": "trò chơi", "ex": "孩子们在玩游戏。\n他每天玩两个小时的游戏。", "ex_vi": "Bọn trẻ đang chơi trò chơi.\nMỗi ngày anh ấy chơi game hai tiếng.", "pron": "yóuxì", "img": "", "group": "List 17", "ex_py": "Háizimen zài wán yóuxì.\nTā měitiān wán liǎng ge xiǎoshí de yóuxì."}, {"front": "关键", "back": "mấu chốt, then chốt", "ex": "学好汉语的关键是多练习。\n这是一个关键的问题。", "ex_vi": "Mấu chốt để học tốt tiếng Trung là luyện tập nhiều.\nĐây là một vấn đề then chốt.", "pron": "guānjiàn", "img": "", "group": "List 18", "ex_py": "Xuéhǎo Hànyǔ de guānjiàn shì duō liànxí.\nZhè shì yí ge guānjiàn de wèntí."}, {"front": "目的", "back": "mục đích", "ex": "你学汉语的目的是什么？\n我们的目的是帮助大家。", "ex_vi": "Mục đích bạn học tiếng Trung là gì?\nMục đích của chúng tôi là giúp đỡ mọi người.", "pron": "mùdì", "img": "", "group": "List 18", "ex_py": "Nǐ xué Hànyǔ de mùdì shì shénme?\nWǒmen de mùdì shì bāngzhù dàjiā."}, {"front": "重点", "back": "trọng điểm", "ex": "这是今天课的重点。\n复习的时候要抓住重点。", "ex_vi": "Đây là trọng điểm của bài hôm nay.\nKhi ôn tập phải nắm được trọng điểm.", "pron": "zhòngdiǎn", "img": "", "group": "List 18", "ex_py": "Zhè shì jīntiān kè de zhòngdiǎn.\nFùxí de shíhou yào zhuāzhù zhòngdiǎn."}, {"front": "个子", "back": "vóc người, chiều cao", "ex": "他个子很高。\n我妹妹个子不高。", "ex_vi": "Anh ấy cao lắm.\nEm gái tôi không cao.", "pron": "gèzi", "img": "", "group": "List 18", "ex_py": "Tā gèzi hěn gāo.\nWǒ mèimei gèzi bù gāo."}, {"front": "暑假", "back": "kỳ nghỉ hè", "ex": "暑假你打算去哪儿？\n今年暑假我在家学汉语。", "ex_vi": "Kỳ nghỉ hè bạn định đi đâu?\nHè năm nay tôi ở nhà học tiếng Trung.", "pron": "shǔjià", "img": "", "group": "List 18", "ex_py": "Shǔjià nǐ dǎsuan qù nǎr?\nJīnnián shǔjià wǒ zài jiā xué Hànyǔ."}, {"front": "到时候", "back": "đến lúc đó", "ex": "到时候我给你打电话。\n现在不努力，到时候就晚了。", "ex_vi": "Đến lúc đó tôi gọi cho bạn.\nBây giờ không cố gắng, đến lúc đó thì muộn rồi.", "pron": "dào shíhou", "img": "", "group": "List 18", "ex_py": "Dào shíhou wǒ gěi nǐ dǎ diànhuà.\nXiànzài bù nǔlì, dào shíhou jiù wǎn le."}, {"front": "市里", "back": "trong thành phố, nội thành", "ex": "周末我们去市里逛逛吧。\n市里的房子很贵。", "ex_vi": "Cuối tuần mình vào thành phố dạo chơi nhé.\nNhà trong nội thành rất đắt.", "pron": "shì li", "img": "", "group": "List 18", "ex_py": "Zhōumò wǒmen qù shìli guàngguang ba.\nShìli de fángzi hěn guì."}, {"front": "组织", "back": "tổ chức", "ex": "学校组织我们去参观博物馆。\n这次活动是谁组织的？", "ex_vi": "Trường tổ chức cho chúng tôi đi tham quan bảo tàng.\nHoạt động lần này ai tổ chức?", "pron": "zǔzhī", "img": "", "group": "List 18", "ex_py": "Xuéxiào zǔzhī wǒmen qù cānguān bówùguǎn.\nZhè cì huódòng shì shuí zǔzhī de?"}, {"front": "酸", "back": "chua", "ex": "这个苹果有点儿酸。\n我不太喜欢吃酸的。", "ex_vi": "Quả táo này hơi chua.\nTôi không thích ăn chua lắm.", "pron": "suān", "img": "", "group": "List 18", "ex_py": "Zhège píngguǒ yǒudiǎnr suān.\nWǒ bú tài xǐhuan chī suān de."}, {"front": "甜", "back": "ngọt", "ex": "这个蛋糕太甜了。\n南方菜比较甜。", "ex_vi": "Cái bánh này ngọt quá.\nMón miền Nam khá ngọt.", "pron": "tián", "img": "", "group": "List 18", "ex_py": "Zhège dàngāo tài tián le.\nNánfāng cài bǐjiào tián."}, {"front": "苦", "back": "đắng; vất vả", "ex": "这药很苦。\n他小时候生活很苦。", "ex_vi": "Thuốc này rất đắng.\nHồi nhỏ cuộc sống của anh ấy rất vất vả.", "pron": "kǔ", "img": "", "group": "List 19", "ex_py": "Zhè yào hěn kǔ.\nTā xiǎoshíhou shēnghuó hěn kǔ."}, {"front": "辣", "back": "cay", "ex": "四川菜很辣。\n你能吃辣的吗？", "ex_vi": "Món Tứ Xuyên rất cay.\nBạn ăn cay được không?", "pron": "là", "img": "", "group": "List 19", "ex_py": "Sìchuān cài hěn là.\nNǐ néng chī là de ma?"}, {"front": "咸", "back": "mặn", "ex": "这个汤太咸了。\n少吃咸的对身体好。", "ex_vi": "Canh này mặn quá.\nĂn ít mặn tốt cho sức khỏe.", "pron": "xián", "img": "", "group": "List 19", "ex_py": "Zhège tāng tài xián le.\nShǎo chī xián de duì shēntǐ hǎo."}, {"front": "偶尔", "back": "thỉnh thoảng", "ex": "我偶尔去健身房。\n他偶尔也会做饭。", "ex_vi": "Thỉnh thoảng tôi đi phòng gym.\nThỉnh thoảng anh ấy cũng nấu cơm.", "pron": "ǒu'ěr", "img": "", "group": "List 19", "ex_py": "Wǒ ǒu'ěr qù jiànshēnfáng.\nTā ǒu'ěr yě huì zuòfàn."}, {"front": "严格", "back": "nghiêm khắc, nghiêm ngặt", "ex": "我们老师对学生很严格。\n公司的规定很严格。", "ex_vi": "Thầy chúng tôi rất nghiêm khắc với học sinh.\nQuy định của công ty rất nghiêm ngặt.", "pron": "yángé", "img": "", "group": "List 19", "ex_py": "Wǒmen lǎoshī duì xuésheng hěn yángé.\nGōngsī de guīdìng hěn yángé."}, {"front": "刷牙", "back": "đánh răng", "ex": "每天要刷两次牙。\n睡觉前别忘了刷牙。", "ex_vi": "Mỗi ngày phải đánh răng hai lần.\nTrước khi ngủ đừng quên đánh răng.", "pron": "shuāyá", "img": "", "group": "List 19", "ex_py": "Měitiān yào shuā liǎng cì yá.\nShuìjiào qián bié wàng le shuāyá."}, {"front": "温水", "back": "nước ấm", "ex": "早上喝一杯温水对身体好。\n请用温水洗脸。", "ex_vi": "Sáng uống một cốc nước ấm tốt cho sức khỏe.\nHãy rửa mặt bằng nước ấm.", "pron": "wēnshuǐ", "img": "", "group": "List 19", "ex_py": "Zǎoshang hē yì bēi wēnshuǐ duì shēntǐ hǎo.\nQǐng yòng wēnshuǐ xǐliǎn."}, {"front": "早晚各", "back": "sáng và tối, mỗi buổi (một lần)", "ex": "这种药早晚各吃一次。\n早晚各刷一次牙。", "ex_vi": "Thuốc này sáng tối mỗi buổi uống một lần.\nSáng và tối mỗi buổi đánh răng một lần.", "pron": "zǎowǎn gè", "img": "", "group": "List 19", "ex_py": "Zhè zhǒng yào zǎowǎn gè chī yí cì.\nZǎowǎn gè shuā yí cì yá."}, {"front": "出高价", "back": "trả giá cao", "ex": "他愿意出高价买这幅画。\n有人出高价买他的房子。", "ex_vi": "Anh ấy sẵn lòng trả giá cao để mua bức tranh này.\nCó người trả giá cao mua nhà của anh ấy.", "pron": "chū gāojià", "img": "", "group": "List 19", "ex_py": "Tā yuànyì chū gāojià mǎi zhè fú huà.\nYǒurén chū gāojià mǎi tā de fángzi."}, {"front": "购买", "back": "mua, mua sắm", "ex": "你可以在网上购买火车票。\n购买以前要看清楚价格。", "ex_vi": "Bạn có thể mua vé tàu trên mạng.\nTrước khi mua phải xem rõ giá.", "pron": "gòumǎi", "img": "", "group": "List 19", "ex_py": "Nǐ kěyǐ zài wǎngshàng gòumǎi huǒchēpiào.\nGòumǎi yǐqián yào kàn qīngchu jiàgé."}, {"front": "当地", "back": "địa phương, bản địa", "ex": "我想尝尝当地的小吃。\n当地人都很热情。", "ex_vi": "Tôi muốn nếm thử món ăn vặt địa phương.\nNgười địa phương đều rất nhiệt tình.", "pron": "dāngdì", "img": "", "group": "List 20", "ex_py": "Wǒ xiǎng chángchang dāngdì de xiǎochī.\nDāngdìrén dōu hěn rèqíng."}, {"front": "制造", "back": "chế tạo, sản xuất", "ex": "这辆车是在中国制造的。\n这家公司制造手机。", "ex_vi": "Chiếc xe này được sản xuất ở Trung Quốc.\nCông ty này sản xuất điện thoại.", "pron": "zhìzào", "img": "", "group": "List 20", "ex_py": "Zhè liàng chē shì zài Zhōngguó zhìzào de.\nZhè jiā gōngsī zhìzào shǒujī."}, {"front": "分数", "back": "điểm số", "ex": "这次考试的分数出来了。\n分数不是最重要的。", "ex_vi": "Điểm thi lần này có rồi.\nĐiểm số không phải là quan trọng nhất.", "pron": "fēnshù", "img": "", "group": "List 20", "ex_py": "Zhè cì kǎoshì de fēnshù chūlai le.\nFēnshù búshì zuì zhòngyào de."}, {"front": "反映", "back": "phản ánh", "ex": "这本小说反映了农村的生活。\n我们向经理反映了这个问题。", "ex_vi": "Cuốn tiểu thuyết này phản ánh cuộc sống nông thôn.\nChúng tôi đã phản ánh vấn đề này với giám đốc.", "pron": "fǎnyìng", "img": "", "group": "List 20", "ex_py": "Zhè běn xiǎoshuō fǎnyìng le nóngcūn de shēnghuó.\nWǒmen xiàng jīnglǐ fǎnyìng le zhège wèntí."}, {"front": "不停", "back": "không ngừng", "ex": "雨下个不停。\n他不停地说话。", "ex_vi": "Mưa rơi không ngớt.\nAnh ấy nói không ngừng.", "pron": "bùtíng", "img": "", "group": "List 20", "ex_py": "Yǔ xià ge bùtíng.\nTā bùtíng de shuōhuà."}, {"front": "实际上", "back": "trên thực tế, thực ra", "ex": "他看起来很年轻，实际上已经五十岁了。\n实际上，这个问题并不难。", "ex_vi": "Trông ông ấy rất trẻ, thực ra đã 50 tuổi rồi.\nThực ra vấn đề này không hề khó.", "pron": "shíjìshang", "img": "", "group": "List 20", "ex_py": "Tā kànqǐlái hěn niánqīng, shíjìshang yǐjīng wǔshí suì le.\nShíjìshang, zhège wèntí bìng bù nán."}, {"front": "一般情况下", "back": "thông thường, trong trường hợp bình thường", "ex": "一般情况下，我七点起床。\n一般情况下，商店九点开门。", "ex_vi": "Thông thường tôi dậy lúc 7 giờ.\nBình thường cửa hàng mở cửa lúc 9 giờ.", "pron": "yìbān qíngkuàng xià", "img": "", "group": "List 20", "ex_py": "Yìbān qíngkuàng xià, wǒ qī diǎn qǐchuáng.\nYìbān qíngkuàng xià, shāngdiàn jiǔ diǎn kāimén."}, {"front": "因此", "back": "vì vậy, do đó", "ex": "他每天练习，因此进步很快。\n今天下雨，因此比赛取消了。", "ex_vi": "Anh ấy luyện tập mỗi ngày, vì vậy tiến bộ rất nhanh.\nHôm nay mưa nên trận đấu bị hủy.", "pron": "yīncǐ", "img": "", "group": "List 20", "ex_py": "Tā měitiān liànxí, yīncǐ jìnbù hěn kuài.\nJīntiān xiàyǔ, yīncǐ bǐsài qǔxiāo le."}, {"front": "并且", "back": "và, đồng thời (nối động từ/VP; ≠ 和 nối danh từ)", "ex": "他会说汉语，并且说得很好。\n我们讨论并且通过了这个计划。", "ex_vi": "Anh ấy biết nói tiếng Trung, và nói rất giỏi.\nChúng tôi đã thảo luận và thông qua kế hoạch này.", "pron": "bìngqiě", "img": "", "group": "List 20", "ex_py": "Tā huì shuō Hànyǔ, bìngqiě shuō de hěn hǎo.\nWǒmen tǎolùn bìngqiě tōngguò le zhège jìhuà."}, {"front": "而且", "back": "hơn nữa, mà còn (nhấn mạnh vế sau)", "ex": "这家饭馆的菜不但便宜，而且好吃。\n他很聪明，而且很努力。", "ex_vi": "Món ở quán này không những rẻ mà còn ngon.\nAnh ấy thông minh, hơn nữa rất chăm chỉ.", "pron": "érqiě", "img": "", "group": "List 20", "ex_py": "Zhè jiā fànguǎn de cài búdàn piányi, érqiě hǎochī.\nTā hěn cōngming, érqiě hěn nǔlì."}, {"front": "预习", "back": "xem trước bài, chuẩn bị bài", "ex": "上课前要预习课文。\n我昨天晚上预习了第五课。", "ex_vi": "Trước giờ học phải xem trước bài.\nTối qua tôi đã xem trước bài 5.", "pron": "yùxí", "img": "", "group": "List 21", "ex_py": "Shàngkè qián yào yùxí kèwén.\nWǒ zuótiān wǎnshang yùxí le dì wǔ kè."}, {"front": "灵活", "back": "linh hoạt", "ex": "他的工作时间很灵活。\n做事要灵活一点儿。", "ex_vi": "Thời gian làm việc của anh ấy rất linh hoạt.\nLàm việc phải linh hoạt một chút.", "pron": "línghuó", "img": "", "group": "List 21", "ex_py": "Tā de gōngzuò shíjiān hěn línghuó.\nZuòshì yào línghuó yìdiǎnr."}, {"front": "灵活性", "back": "tính linh hoạt", "ex": "这份工作需要很大的灵活性。\n网上学习的灵活性比较大。", "ex_vi": "Công việc này cần tính linh hoạt cao.\nHọc online có tính linh hoạt khá cao.", "pron": "línghuóxìng", "img": "", "group": "List 21", "ex_py": "Zhè fèn gōngzuò xūyào hěn dà de línghuóxìng.\nWǎngshàng xuéxí de línghuóxìng bǐjiào dà."}, {"front": "记忆", "back": "trí nhớ, ký ức", "ex": "这是我童年最美好的记忆。\n老人的记忆越来越差。", "ex_vi": "Đây là ký ức đẹp nhất thời thơ ấu của tôi.\nTrí nhớ của người già ngày càng kém.", "pron": "jìyì", "img": "", "group": "List 21", "ex_py": "Zhè shì wǒ tóngnián zuì měihǎo de jìyì.\nLǎorén de jìyì yuèláiyuè chà."}, {"front": "心烦", "back": "bực bội, phiền lòng", "ex": "工作太多，让我很心烦。\n别为这些小事心烦。", "ex_vi": "Công việc quá nhiều làm tôi rất bực bội.\nĐừng phiền lòng vì mấy chuyện nhỏ này.", "pron": "xīnfán", "img": "", "group": "List 21", "ex_py": "Gōngzuò tài duō, ràng wǒ hěn xīnfán.\nBié wèi zhèxiē xiǎoshì xīnfán."}, {"front": "盐", "back": "muối", "ex": "汤里再放点儿盐。\n少放盐对身体好。", "ex_vi": "Cho thêm chút muối vào canh.\nCho ít muối tốt cho sức khỏe.", "pron": "yán", "img": "", "group": "List 21", "ex_py": "Tāng lǐ zài fàng diǎnr yán.\nShǎo fàng yán duì shēntǐ hǎo."}, {"front": "食盐", "back": "muối ăn", "ex": "每天吃的食盐不要太多。\n食盐可以用来保存食物。", "ex_vi": "Lượng muối ăn mỗi ngày không nên quá nhiều.\nMuối ăn có thể dùng để bảo quản thực phẩm.", "pron": "shíyán", "img": "", "group": "List 21", "ex_py": "Měitiān chī de shíyán búyào tài duō.\nShíyán kěyǐ yònglái bǎocún shíwù."}, {"front": "护", "back": "bảo vệ, che chở (保护, 爱护, 护士…)", "ex": "我们要爱护环境。\n她是一名护士。", "ex_vi": "Chúng ta phải giữ gìn môi trường.\nCô ấy là một y tá.", "pron": "hù", "img": "", "group": "List 21", "ex_py": "Wǒmen yào àihù huánjìng.\nTā shì yì míng hùshi."}, {"front": "发挥作用", "back": "phát huy tác dụng", "ex": "这种药很快就发挥作用了。\n每个人都能在团队里发挥作用。", "ex_vi": "Thuốc này phát huy tác dụng rất nhanh.\nMỗi người đều có thể phát huy vai trò trong đội.", "pron": "fāhuī zuòyòng", "img": "", "group": "List 21", "ex_py": "Zhè zhǒng yào hěn kuài jiù fāhuī zuòyòng le.\nMěi ge rén dōu néng zài tuánduì lǐ fāhuī zuòyòng."}, {"front": "无法", "back": "không thể (+ động từ)", "ex": "我无法理解他的想法。\n这个问题现在无法解决。", "ex_vi": "Tôi không thể hiểu suy nghĩ của anh ấy.\nVấn đề này hiện không thể giải quyết.", "pron": "wúfǎ", "img": "", "group": "List 21", "ex_py": "Wǒ wúfǎ lǐjiě tā de xiǎngfǎ.\nZhège wèntí xiànzài wúfǎ jiějué."}, {"front": "无", "back": "không, không có", "ex": "他对这件事一无所知。\n这种水果无毒，可以吃。", "ex_vi": "Anh ấy hoàn toàn không biết gì về chuyện này.\nLoại quả này không độc, ăn được.", "pron": "wú", "img": "", "group": "List 22", "ex_py": "Tā duì zhè jiàn shì yìwúsuǒzhī.\nZhè zhǒng shuǐguǒ wúdú, kěyǐ chī."}, {"front": "无语", "back": "cạn lời, không nói nên lời", "ex": "听了他的话，我真无语。\n她无语地看着我。", "ex_vi": "Nghe anh ta nói, tôi thật cạn lời.\nCô ấy lặng thinh nhìn tôi.", "pron": "wúyǔ", "img": "", "group": "List 22", "ex_py": "Tīng le tā de huà, wǒ zhēn wúyǔ.\nTā wúyǔ de kànzhe wǒ."}, {"front": "无意", "back": "vô tình, vô ý", "ex": "我是无意的，对不起。\n我无意中听到了他们的谈话。", "ex_vi": "Tôi vô ý thôi, xin lỗi.\nTôi vô tình nghe được cuộc nói chuyện của họ.", "pron": "wúyì", "img": "", "group": "List 22", "ex_py": "Wǒ shì wúyì de, duìbuqǐ.\nWǒ wúyìzhōng tīngdào le tāmen de tánhuà."}, {"front": "勺子", "back": "cái thìa, muỗng", "ex": "请给我一把勺子。\n喝汤要用勺子。", "ex_vi": "Cho tôi một cái thìa.\nUống canh phải dùng thìa.", "pron": "sháozi", "img": "", "group": "List 22", "ex_py": "Qǐng gěi wǒ yì bǎ sháozi.\nHē tāng yào yòng sháozi."}, {"front": "积极", "back": "tích cực", "ex": "他上课很积极。\n我们要积极参加活动。", "ex_vi": "Anh ấy học trên lớp rất tích cực.\nChúng ta phải tích cực tham gia hoạt động.", "pron": "jījí", "img": "", "group": "List 22", "ex_py": "Tā shàngkè hěn jījí.\nWǒmen yào jījí cānjiā huódòng."}, {"front": "惊讶", "back": "ngạc nhiên", "ex": "听到这个消息，大家都很惊讶。\n他惊讶地看着我。", "ex_vi": "Nghe tin này mọi người đều rất ngạc nhiên.\nAnh ấy ngạc nhiên nhìn tôi.", "pron": "jīngyà", "img": "", "group": "List 22", "ex_py": "Tīngdào zhège xiāoxi, dàjiā dōu hěn jīngyà.\nTā jīngyà de kànzhe wǒ."}, {"front": "起到…作用", "back": "có tác dụng…, đóng vai trò…", "ex": "运动对减肥起到了很大的作用。\n老师在学习中起到重要作用。", "ex_vi": "Vận động có tác dụng lớn trong việc giảm cân.\nGiáo viên đóng vai trò quan trọng trong học tập.", "pron": "qǐdào… zuòyòng", "img": "", "group": "List 22", "ex_py": "Yùndòng duì jiǎnféi qǐdào le hěn dà de zuòyòng.\nLǎoshī zài xuéxí zhōng qǐdào zhòngyào zuòyòng."}, {"front": "太阳光", "back": "ánh mặt trời", "ex": "太阳光太强了，戴上帽子吧。\n植物需要太阳光。", "ex_vi": "Nắng gắt quá, đội mũ vào đi.\nThực vật cần ánh mặt trời.", "pron": "tàiyángguāng", "img": "", "group": "List 22", "ex_py": "Tàiyángguāng tài qiáng le, dài shàng màozi ba.\nZhíwù xūyào tàiyángguāng."}, {"front": "对于", "back": "đối với", "ex": "对于这个问题，你有什么看法？\n对于我来说，家人最重要。", "ex_vi": "Đối với vấn đề này, bạn có ý kiến gì?\nĐối với tôi, gia đình là quan trọng nhất.", "pron": "duìyú", "img": "", "group": "List 22", "ex_py": "Duìyú zhège wèntí, nǐ yǒu shénme kànfǎ?\nDuìyú wǒ láishuō, jiārén zuì zhòngyào."}, {"front": "节", "back": "tiết, đoạn (lượng từ)", "ex": "我今天有四节课。\n这节课我们学语法。", "ex_vi": "Hôm nay tôi có bốn tiết học.\nTiết này chúng ta học ngữ pháp.", "pron": "jié", "img": "", "group": "List 22", "ex_py": "Wǒ jīntiān yǒu sì jié kè.\nZhè jié kè wǒmen xué yǔfǎ."}, {"front": "药物", "back": "thuốc, dược phẩm", "ex": "这种药物要放在冰箱里。\n有些药物对孩子不安全。", "ex_vi": "Loại thuốc này phải để trong tủ lạnh.\nMột số loại thuốc không an toàn với trẻ em.", "pron": "yàowù", "img": "", "group": "List 23", "ex_py": "Zhè zhǒng yàowù yào fàngzài bīngxiāng lǐ.\nYǒuxiē yàowù duì háizi bù ānquán."}, {"front": "之间", "back": "giữa", "ex": "我们之间没有秘密。\n学校在银行和超市之间。", "ex_vi": "Giữa chúng ta không có bí mật.\nTrường học nằm giữa ngân hàng và siêu thị.", "pron": "zhījiān", "img": "", "group": "List 23", "ex_py": "Wǒmen zhījiān méiyǒu mìmì.\nXuéxiào zài yínháng hé chāoshì zhījiān."}, {"front": "原因之一", "back": "một trong những nguyên nhân", "ex": "天气是原因之一。\n工作压力大是他生病的原因之一。", "ex_vi": "Thời tiết là một trong những nguyên nhân.\nÁp lực công việc lớn là một trong những nguyên nhân anh ấy bị ốm.", "pron": "yuányīn zhī yī", "img": "", "group": "List 23", "ex_py": "Tiānqì shì yuányīn zhī yī.\nGōngzuò yālì dà shì tā shēngbìng de yuányīn zhī yī."}, {"front": "取得了…的效果", "back": "đạt được hiệu quả…", "ex": "这个方法取得了很好的效果。\n广告取得了不错的效果。", "ex_vi": "Phương pháp này đã đạt hiệu quả rất tốt.\nQuảng cáo đạt được hiệu quả khá tốt.", "pron": "qǔdé le… de xiàoguǒ", "img": "", "group": "List 23", "ex_py": "Zhège fāngfǎ qǔdé le hěn hǎo de xiàoguǒ.\nGuǎnggào qǔdé le búcuò de xiàoguǒ."}, {"front": "脸红", "back": "đỏ mặt", "ex": "她一说话就脸红。\n他喝了一点儿酒就脸红了。", "ex_vi": "Cô ấy hễ nói là đỏ mặt.\nAnh ấy uống chút rượu là đỏ mặt.", "pron": "liǎnhóng", "img": "", "group": "List 23", "ex_py": "Tā yì shuōhuà jiù liǎnhóng.\nTā hē le yìdiǎnr jiǔ jiù liǎnhóng le."}, {"front": "吃惊", "back": "giật mình, kinh ngạc", "ex": "他的成绩让大家很吃惊。\n我吃惊地发现钱包不见了。", "ex_vi": "Thành tích của anh ấy khiến mọi người kinh ngạc.\nTôi giật mình phát hiện ví biến mất.", "pron": "chījīng", "img": "", "group": "List 23", "ex_py": "Tā de chéngjì ràng dàjiā hěn chījīng.\nWǒ chījīng de fāxiàn qiánbāo bújiàn le."}, {"front": "笨", "back": "ngốc nghếch, vụng về", "ex": "我太笨了，又忘了带钥匙。\n他一点儿也不笨，只是不努力。", "ex_vi": "Tôi ngốc quá, lại quên mang chìa khóa.\nAnh ấy chẳng ngốc chút nào, chỉ là không chăm chỉ.", "pron": "bèn", "img": "", "group": "List 23", "ex_py": "Wǒ tài bèn le, yòu wàng le dài yàoshi.\nTā yìdiǎnr yě bú bèn, zhǐshì bù nǔlì."}, {"front": "赚", "back": "kiếm (tiền)", "ex": "他一个月能赚一万块。\n赚钱不容易，要省着花。", "ex_vi": "Một tháng anh ấy kiếm được 10.000 tệ.\nKiếm tiền không dễ, phải tiêu tiết kiệm.", "pron": "zhuàn", "img": "", "group": "List 23", "ex_py": "Tā yí ge yuè néng zhuàn yíwàn kuài.\nZhuànqián bù róngyì, yào shěngzhe huā."}]};
+
+/* ---------- Trạng thái ---------- */
+let deck = (DECK && Array.isArray(DECK.cards) && DECK.cards.length) ? DECK
+         : {title:"🎯 Flashcard", lang:"en-US", cards:[]};
+let lang = deck.lang || "en-US";
+let settings = Object.assign({dir:"fwd", autoAudio:false, dark:false, weakFirst:true}, store.load("fc_settings", {}));
+const PKEY = "fc_progress_" + (deck.title||"deck").replace(/\s+/g,"_");
+let progress = store.load(PKEY, {});   // front -> level 0..5
+
+let queue=[], pos=0, roundCards=[], round=1, flipped=false;
+let forgotten=new Set(), cleared=new Set(), scored=new Set(), sideMap={};
+let currentGroupFilter="all";   // "all" hoặc đúng tên group của thẻ
+let currentMode="study";        // "study" (flashcard) hoặc "quiz" (kiểm tra)
+let quizQueue=[], quizPos=0, quizScore=0, quizAnswered=false, quizAnsweredCount=0;
+let quizStartMs=null, quizDetails=[];  // dùng để tính thời gian làm + ghi chi tiết từng câu về Sheet (nếu có)
+
+const $ = id => document.getElementById(id);
+
+/* Tách emoji dẫn đầu tiêu đề khỏi phần chữ, để chỉ tô gradient phần chữ —
+   emoji giữ nguyên màu gốc (xem ghi chú tại .title-text trong CSS). */
+function setDeckTitle(){
+  const raw = (deck.title||"🎯 Flashcard").replace(/<.*/,"");
+  const m = raw.match(/^(\p{Extended_Pictographic}[\uFE0F\u200D\p{Extended_Pictographic}]*)\s*/u);
+  $("titleIcon").textContent = m ? m[1] : "";
+  $("titleText").textContent = m ? raw.slice(m[0].length) : raw;
+}
+const shuffleArr = a => { for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const getLvl = f => Math.max(0, Math.min(5, progress[f] ?? 0));
+function setLvl(f,v){ progress[f]=Math.max(0,Math.min(5,v)); store.save(PKEY,progress); }
+function saveSettings(){ store.save("fc_settings", settings); }
+
+/* ---------- Lọc theo chủ đề (group) ---------- */
+function uniqueGroups(){
+  const seen=new Set(), list=[];
+  deck.cards.forEach(c=>{ const g=(c.group||"").trim(); if(g && !seen.has(g)){ seen.add(g); list.push(g); } });
+  return list;
+}
+function currentPool(){
+  if(currentGroupFilter==="all") return deck.cards;
+  return deck.cards.filter(c=>c.group===currentGroupFilter);
+}
+function activeIndices(){
+  if(currentGroupFilter==="all") return deck.cards.map((_,i)=>i);
+  const out=[]; deck.cards.forEach((c,i)=>{ if(c.group===currentGroupFilter) out.push(i); }); return out;
+}
+function renderGroupNav(){
+  const nav=$("groupSidebar");
+  const groups=uniqueGroups();
+  nav.innerHTML="";
+  if(!groups.length){ nav.classList.add("hidden"); return; }
+  nav.classList.remove("hidden");
+
+  const label=document.createElement("div");
+  label.className="sidebar-label"; label.textContent="Chủ đề";
+  nav.appendChild(label);
+
+  const counts={};
+  deck.cards.forEach(c=>{ const g=(c.group||"").trim(); if(g) counts[g]=(counts[g]||0)+1; });
+
+  function addChip(label, count, key){
+    const b=document.createElement("button");
+    b.type="button"; b.className="group-chip"+(currentGroupFilter===key?" on":"");
+    b.dataset.g=key;
+    const lab=document.createElement("span"); lab.className="chip-label"; lab.textContent=label;
+    const cnt=document.createElement("span"); cnt.className="cnt"; cnt.textContent=count;
+    b.appendChild(lab); b.appendChild(cnt);
+    b.addEventListener("click", ()=>{
+      if(currentGroupFilter===key) return;
+      currentGroupFilter=key; renderGroupNav();
+      if(currentMode==="quiz") startQuiz(); else startSession();
+    });
+    nav.appendChild(b);
+  }
+  addChip("Tất cả", deck.cards.length, "all");
+  groups.forEach(g=> addChip(g, counts[g], g));
+}
+
+/* ---------- Thứ tự học ---------- */
+function orderIndices(){
+  const idxs = activeIndices();
+  const arr = idxs.map(i=>({i, lvl:getLvl(deck.cards[i].front), r:Math.random()}));
+  if(settings.weakFirst) arr.sort((a,b)=> a.lvl-b.lvl || a.r-b.r);
+  else arr.sort((a,b)=> a.r-b.r);
+  return arr.map(o=>o.i);
+}
+function startSession(){
+  round=1; scored=new Set(); sideMap={};
+  if(activeIndices().length===0){ showEmpty(); return; }
+  startRound(orderIndices(), false);
+  showStudy();
+}
+function startRound(indices, doShuffle){
+  roundCards=[...new Set(indices)];
+  queue = doShuffle ? shuffleArr(roundCards.slice()) : roundCards.slice();
+  forgotten=new Set(); cleared=new Set(); pos=0; flipped=false;
+  render();
+}
+
+/* ---------- Hiển thị mặt thẻ ---------- */
+function sideFor(idx){
+  if(settings.dir==="fwd") return "front";
+  if(settings.dir==="rev") return "back";
+  if(!(idx in sideMap)) sideMap[idx] = Math.random()<0.5 ? "front":"back";
+  return sideMap[idx];
+}
+
+function updateStats(){
+  const total = roundCards.length || 1;
+  let nho=0; cleared.forEach(i=>{ if(!forgotten.has(i)) nho++; });
+  $("sKnow").textContent = nho;
+  $("sForget").textContent = forgotten.size;
+  $("sLeft").textContent = Math.max(total - nho - forgotten.size, 0);
+  $("sRound").textContent = round;
+  $("progBar").style.width = Math.min((cleared.size/total)*100,100)+"%";
+  const pool = currentPool();
+  const mastered = pool.filter(c=>getLvl(c.front)>=4).length;
+  $("deckSub").textContent = `Thuộc ${mastered}/${pool.length} từ`;
+}
+
+function render(){
+  setDeckTitle();
+  if(!deck.cards || deck.cards.length===0 || activeIndices().length===0){ showEmpty(); return; }
+  if(pos>=queue.length){ endRound(); return; }
+
+  const idx = queue[pos];
+  const c = deck.cards[idx];
+  const promptWord = sideFor(idx)==="front";   // mặt trước có phải là "từ" không
+
+  flipped=false; $("card").classList.remove("flip");
+  $("frontWord").textContent   = promptWord ? c.front : c.back;
+  $("frontPron").textContent   = promptWord ? (c.pron||"") : "";
+  $("frontKicker").textContent = promptWord ? "Từ vựng" : "Nghĩa";
+  $("backMeaning").textContent = promptWord ? c.back : c.front;
+  $("backKicker").textContent  = promptWord ? "Nghĩa" : "Từ vựng";
+  (function(){
+    const box=$("backExample"); box.innerHTML="";
+    const zh=(c.ex||"").split("\n"), py=(c.ex_py||"").split("\n");
+    zh.forEach((line,i)=>{
+      if(!line) return;
+      const a=document.createElement("span"); a.className="ex-zh"; a.textContent=line; box.appendChild(a);
+      if(py[i]){ const b=document.createElement("span"); b.className="ex-py"; b.textContent=py[i]; box.appendChild(b); }
+    });
+  })();
+  $("backExampleVi").textContent = c.ex_vi||"";
+  // icon minh họa luôn đi kèm mặt "từ vựng", dù mặt đó là front hay back
+  $("frontIcon").textContent = promptWord ? (c.img||"") : "";
+  $("backIcon").textContent  = promptWord ? "" : (c.img||"");
+  $("btnPrev").disabled = pos===0;
+
+  // độ thuộc (chấm)
+  const lvl=getLvl(c.front), dots=$("frontDots"); dots.innerHTML="";
+  for(let i=0;i<5;i++){ const d=document.createElement("i"); if(i<lvl) d.className="on"; dots.appendChild(d); }
+
+  updateStats();
+  animateEnter();
+  if(settings.autoAudio && promptWord) setTimeout(()=>speakWord(c.front), 260);
+}
+
+function endRound(){
+  if(forgotten.size===0){ showDone(); return; }
+  $("reviewTitle").textContent = `Còn ${forgotten.size} từ chưa nhớ`;
+  const list=$("reviewList"); list.innerHTML="";
+  forgotten.forEach(i=>{ const s=document.createElement("span"); s.className="chip"; s.textContent=deck.cards[i].front; list.appendChild(s); });
+  showReview();
+}
+
+/* ---------- Chuyển màn ---------- */
+function hideAll(){ ["studyView","reviewView","doneView","emptyView","quizView","quizResultView"].forEach(v=>$(v).classList.add("hidden")); }
+function showStudy(){ hideAll(); $("studyView").classList.remove("hidden"); render(); }
+function showReview(){ hideAll(); $("reviewView").classList.remove("hidden"); updateStats(); }
+function showDone(){ hideAll(); $("doneView").classList.remove("hidden");
+  const pool=currentPool();
+  const mastered=pool.filter(c=>getLvl(c.front)>=4).length;
+  $("doneSub").textContent=`Bạn đã hoàn thành! Đã thuộc ${mastered}/${pool.length} từ.`;
+  updateStats(); }
+function showEmpty(){ hideAll(); $("emptyView").classList.remove("hidden"); updateStats(); }
+
+/* ---------- Hoạt ảnh ---------- */
+const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function animateEnter(){ if(reduceMotion) return; const s=$("scene"); if(!s) return; s.classList.remove("enter"); void s.offsetWidth; s.classList.add("enter"); }
+function knowFx(){
+  if(reduceMotion) return;
+  const s=$("scene"); if(!s) return;
+  s.classList.remove("knowpop"); void s.offsetWidth; s.classList.add("knowpop");
+  const wrap=document.createElement("div"); wrap.className="confetti";
+  const colors=["#1D9E75","#12B3A0","#F4B740","#F08A5D","#5FD3AE"];
+  for(let i=0;i<14;i++){
+    const p=document.createElement("i"), ang=Math.random()*Math.PI*2, dist=60+Math.random()*70;
+    p.style.background=colors[i%colors.length];
+    p.style.setProperty("--cx", Math.cos(ang)*dist+"px");
+    p.style.setProperty("--cy", (Math.sin(ang)*dist-24)+"px");
+    p.style.setProperty("--cr", (Math.random()*360)+"deg");
+    p.style.animation="conf .7s ease-out forwards";
+    p.style.animationDelay=(Math.random()*.05)+"s";
+    wrap.appendChild(p);
+  }
+  s.appendChild(wrap); setTimeout(()=>wrap.remove(), 820);
+}
+
+/* ---------- Hành động cốt lõi ---------- */
+function toggleFlip(){ flipped=!flipped; $("card").classList.toggle("flip", flipped); }
+function doKnow(){
+  if(pos>=queue.length) return;
+  const idx=queue[pos], f=deck.cards[idx].front;
+  cleared.add(idx); knowFx();
+  if(!scored.has(idx)){ scored.add(idx); setLvl(f, getLvl(f)+1); }
+  for(let i=queue.length-1;i>pos;i--){ if(queue[i]===idx) queue.splice(i,1); }
+  pos++; render();
+}
+function doForget(){
+  if(pos>=queue.length) return;
+  const idx=queue[pos], f=deck.cards[idx].front;
+  forgotten.add(idx); cleared.delete(idx);
+  if(!scored.has(idx)){ scored.add(idx); setLvl(f, getLvl(f)-1); }
+  let ahead=false;
+  for(let i=pos+1;i<queue.length;i++){ if(queue[i]===idx){ ahead=true; break; } }
+  if(!ahead){ const at=pos+1+Math.floor(Math.random()*(queue.length-pos)); queue.splice(at,0,idx); }
+  pos++; render();
+}
+function doNext(){ if(pos<queue.length-1){ pos++; render(); } }
+function doPrev(){ if(pos>0){ pos--; render(); } }
+
+$("btnKnow").addEventListener("click", doKnow);
+$("btnForget").addEventListener("click", doForget);
+$("btnNext").addEventListener("click", doNext);
+$("btnPrev").addEventListener("click", doPrev);
+$("btnReviewNow").addEventListener("click", ()=>{ round++; startRound([...forgotten], true); showStudy(); });
+$("btnRestart").addEventListener("click", startSession);
+$("btnShuffle").addEventListener("click", ()=>{ const h=queue.slice(0,pos), t=shuffleArr(queue.slice(pos)); queue=h.concat(t); render(); });
+
+/* ---------- Kiểm tra từ vựng (quiz trắc nghiệm) ---------- */
+function setMode(mode){
+  if(mode===currentMode) return;
+  currentMode=mode;
+  [...$("modeToggle").children].forEach(b=> b.classList.toggle("on", b.dataset.mode===mode));
+  if(mode==="study"){
+    $("statsBarWrap").classList.remove("hidden");
+    showStudy();
+  } else {
+    $("statsBarWrap").classList.add("hidden");
+    startQuiz();
+  }
+}
+$("modeToggle").addEventListener("click", e=>{
+  const b=e.target.closest(".mode-btn"); if(!b) return;
+  setMode(b.dataset.mode);
+});
+
+// Chọn tối đa 3 phương án nhiễu — lấy từ toàn bộ deck (không chỉ nhóm đang lọc)
+// để luôn đủ lựa chọn kể cả khi một nhóm chỉ có 1-2 thẻ.
+function pickQuizDistractors(correctCard){
+  const seenBacks = new Set([correctCard.back]);
+  const out = [];
+  shuffleArr(deck.cards.filter(c=>c!==correctCard).slice()).forEach(c=>{
+    if(out.length>=3) return;
+    if(!seenBacks.has(c.back)){ seenBacks.add(c.back); out.push(c.back); }
+  });
+  return out;
+}
+
+let quizLimit = 0;
+function startQuiz(){
+  const pool = currentPool();
+  if(!pool.length){ hideAll(); $("emptyView").classList.remove("hidden"); return; }
+  const n = pool.length;
+  $("countSub").textContent = `Bộ đang chọn có ${n} từ. Từ sẽ được rút ngẫu nhiên.`;
+  const grid = $("countGrid"); grid.innerHTML = "";
+  const opts = [10,20,30,50,100].filter(x=>x<n).concat([0]);
+  let def = store.load("fc_quiz_limit", 10); if(def && def>=n) def = 0;
+  const pick = v=>{ quizLimit=v; [...grid.children].forEach(b=>b.classList.toggle("on", +b.dataset.v===v)); $("countInput").value = v||n; };
+  opts.forEach(v=>{ const b=document.createElement("button"); b.type="button"; b.dataset.v=v; b.textContent = v? v+" từ" : `Tất cả (${n})`; b.addEventListener("click",()=>pick(v)); grid.appendChild(b); });
+  $("countInput").max = n;
+  pick(opts.includes(def)?def:opts[0]);
+  $("countModal").classList.remove("hidden");
+}
+$("countInput").addEventListener("input", ()=>{
+  const n = currentPool().length; let v = parseInt($("countInput").value,10);
+  quizLimit = (v>0 && v<n) ? v : 0;
+  [...$("countGrid").children].forEach(b=>b.classList.toggle("on", +b.dataset.v===quizLimit));
+});
+$("btnCountStart").addEventListener("click", ()=>{ $("countModal").classList.add("hidden"); store.save("fc_quiz_limit", quizLimit); runQuiz(); });
+$("btnCountCancel").addEventListener("click", ()=>{ $("countModal").classList.add("hidden"); setMode("study"); });
+function runQuiz(){
+  hideAll(); $("quizView").classList.remove("hidden");
+  const pool = currentPool();
+  if(!pool.length){ hideAll(); $("emptyView").classList.remove("hidden"); return; }
+  quizQueue = shuffleArr(pool.slice());
+  if(quizLimit>0 && quizLimit<quizQueue.length) quizQueue = quizQueue.slice(0, quizLimit);
+  quizPos = 0; quizScore = 0; quizAnswered = false; quizAnsweredCount = 0;
+  quizStartMs = Date.now(); quizDetails = [];
+  updateQuizSubmitBtn();
+  renderQuizQuestion();
+}
+
+// Nút "Nộp bài" chỉ dùng được sau khi đã trả lời ít nhất 1 câu — tránh nộp bài trống.
+function updateQuizSubmitBtn(){
+  $("quizSubmitBtn").disabled = quizAnsweredCount===0;
+}
+
+function renderQuizQuestion(){
+  if(quizPos>=quizQueue.length){ showQuizResult(); return; }
+  const c = quizQueue[quizPos];
+  quizAnswered = false;
+  $("quizCounter").textContent = `Câu ${quizPos+1}/${quizQueue.length}`;
+  $("quizProgFill").style.width = Math.round((quizPos/quizQueue.length)*100)+"%";
+  $("quizScoreLive").textContent = quizScore;
+  $("quizIcon").textContent = c.img||"";
+  $("quizWord").textContent = c.front;
+  $("quizPron").textContent = c.pron||"";
+
+  const options = shuffleArr([c.back, ...pickQuizDistractors(c)]);
+  const wrap = $("quizOptions"); wrap.innerHTML="";
+  options.forEach((opt,i)=>{
+    const btn=document.createElement("button");
+    btn.type="button"; btn.className="quiz-opt";
+    const lab=document.createElement("span"); lab.className="quiz-opt-label"; lab.textContent=String.fromCharCode(65+i);
+    const txt=document.createElement("span"); txt.className="quiz-opt-text"; txt.textContent=opt;
+    btn.appendChild(lab); btn.appendChild(txt);
+    btn.addEventListener("click", ()=> answerQuiz(btn, opt, c.back, c.front));
+    wrap.appendChild(btn);
+  });
+  $("quizFeedback").className="quiz-feedback"; $("quizFeedback").textContent="";
+  $("quizNext").classList.add("hidden");
+}
+
+function answerQuiz(btn, chosen, correct, word){
+  if(quizAnswered) return;
+  quizAnswered = true;
+  [...$("quizOptions").children].forEach(b=>{
+    b.disabled = true;
+    const text = b.querySelector(".quiz-opt-text").textContent;
+    if(text===correct) b.classList.add("correct");
+    else if(b===btn) b.classList.add("wrong");
+  });
+  const fb=$("quizFeedback");
+  const isCorrect = chosen===correct;
+  quizAnsweredCount++;
+  updateQuizSubmitBtn();
+  // Ghi lại chi tiết câu này — dùng để gửi kèm scoreSheetUrl (cột "Xem chi tiết" +
+  // tab thống kê câu hay sai, nếu Apps Script phía giáo viên hỗ trợ detailsJson).
+  quizDetails.push({ no: quizDetails.length+1, label: word||"", given: chosen||"", answer: correct||"", correct: isCorrect });
+  if(isCorrect){
+    quizScore++;
+    fb.className="quiz-feedback correct"; fb.textContent="✅ Chính xác!";
+  } else {
+    fb.className="quiz-feedback wrong"; fb.textContent=`❌ Chưa đúng — đáp án: ${correct}`;
+  }
+  $("quizScoreLive").textContent = quizScore;
+  $("quizNext").classList.remove("hidden");
+}
+
+function nextQuiz(){ quizPos++; renderQuizQuestion(); }
+
+// finishQuiz(partial): partial=false khi đã trả lời hết toàn bộ hàng đợi (đường thường);
+// partial=true khi học sinh chủ động bấm "Nộp bài" giữa chừng — total dùng số câu ĐÃ TRẢ LỜI
+// (quizAnsweredCount), không phải tổng số thẻ, để không tính những câu chưa làm là sai.
+function finishQuiz(partial){
+  const score = quizScore;
+  const total = partial ? Math.max(quizAnsweredCount, 1) : (quizQueue.length || 1);
+  const pct = Math.round((score/total)*100);
+  $("quizScorePct").textContent = pct+"%";
+  $("quizScoreLabel").textContent = partial
+    ? `${score}/${total} câu đúng (nộp giữa chừng — đã làm ${quizAnsweredCount}/${quizQueue.length} câu)`
+    : `${score}/${total} câu đúng`;
+  hideAll(); $("quizResultView").classList.remove("hidden");
+  maybeSubmitScore(score, total, pct);
+}
+
+function showQuizResult(){ finishQuiz(false); }
+
+/* ---------- Nộp bài giữa chừng (bất cứ lúc nào, không cần làm hết thẻ) ---------- */
+function openSubmitConfirm(){
+  if(quizAnsweredCount===0) return; // nút đã bị disable, đây là chốt an toàn thêm
+  $("submitConfirmSub").textContent =
+    `Bạn đã làm ${quizAnsweredCount}/${quizQueue.length} câu, đúng ${quizScore} câu. Nộp bài ngay?`;
+  $("submitConfirmModal").classList.remove("hidden");
+}
+$("quizSubmitBtn").addEventListener("click", openSubmitConfirm);
+$("btnSubmitConfirmNo").addEventListener("click", ()=> $("submitConfirmModal").classList.add("hidden"));
+$("btnSubmitConfirmYes").addEventListener("click", ()=>{
+  $("submitConfirmModal").classList.add("hidden");
+  finishQuiz(true);
+});
+
+$("quizNext").addEventListener("click", nextQuiz);
+$("btnQuizRetry").addEventListener("click", startQuiz);
+$("btnQuizToStudy").addEventListener("click", ()=> setMode("study"));
+
+/* ---------- Ghi điểm Kiểm tra về Google Sheet (tùy chọn, qua Apps Script) ---------- */
+const NAME_KEY = "fc_student_name"; // dùng chung cho mọi bộ thẻ trên máy này, chỉ hỏi 1 lần
+let pendingScoreSubmit = null;
+
+function getStudentName(){ return (store.load(NAME_KEY, "")||"").trim(); }
+function setStudentName(n){ store.save(NAME_KEY, n); }
+
+// Gọi sau mỗi lần xem kết quả Kiểm tra. Không làm gì nếu deck không cấu hình scoreSheetUrl.
+function maybeSubmitScore(score, total, pct){
+  const url = (deck.scoreSheetUrl||"").trim();
+  if(!url) return;
+  const name = getStudentName();
+  if(!name){
+    pendingScoreSubmit = {score, total, pct};
+    $("nameInput").value = "";
+    $("nameModal").classList.remove("hidden");
+    return;
+  }
+  submitScoreToSheet(url, name, score, total, pct);
+}
+
+function fmtMMSS(totalSec){
+  const s = Math.max(0, Math.round(totalSec));
+  const m = Math.floor(s/60), r = s%60;
+  return String(m).padStart(2,"0") + ":" + String(r).padStart(2,"0");
+}
+
+function submitScoreToSheet(url, name, score, total, pct){
+  const nowIso = new Date().toISOString();
+  const elapsedSec = quizStartMs!=null ? Math.round((Date.now()-quizStartMs)/1000) : "";
+  const payload = {
+    name, deck: deck.title||"", score, total, pct,
+    // Trường "ts" giữ để tương thích flashcard-score-sheet.gs (schema đơn giản mặc định
+    // của SKILL_Flashcard); "timestamp"/"class"/"unit"/"level"/"timeSeconds"/
+    // "timeFormatted"/"detailsJson" phục vụ schema phong phú hơn (vd PET calm-wave
+    // logger) — cả hai kiểu Apps Script đều đọc được cùng một payload này.
+    ts: nowIso, timestamp: nowIso,
+    class: deck.classLabel||"", unit: deck.unitLabel||"", level: deck.levelLabel||"",
+    timeSeconds: elapsedSec, timeFormatted: elapsedSec!==""? fmtMMSS(elapsedSec) : "",
+    detailsJson: JSON.stringify(quizDetails)
+  };
+  // Content-Type: text/plain tránh CORS preflight (Apps Script Web App không xử lý OPTIONS).
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  }).catch(()=>{ /* im lặng bỏ qua — không được làm gián đoạn trải nghiệm học sinh */ });
+}
+
+$("btnSaveName").addEventListener("click", ()=>{
+  const n = $("nameInput").value.trim();
+  if(!n) return;
+  setStudentName(n);
+  $("nameModal").classList.add("hidden");
+  if(pendingScoreSubmit){
+    const { score, total, pct } = pendingScoreSubmit;
+    pendingScoreSubmit = null;
+    submitScoreToSheet((deck.scoreSheetUrl||"").trim(), n, score, total, pct);
+  }
+});
+
+/* ---------- Vuốt + chạm ---------- */
+const drag=$("drag");
+let sx=0, dx=0, down=false, moved=false;
+drag.addEventListener("pointerdown", e=>{
+  if(e.target.closest(".tool")) return;
+  if(pos>=queue.length) return;
+  down=true; moved=false; sx=e.clientX; dx=0;
+  drag.style.transition="none";
+  try{ drag.setPointerCapture(e.pointerId); }catch(_){}
+});
+drag.addEventListener("pointermove", e=>{
+  if(!down) return;
+  dx=e.clientX-sx; if(Math.abs(dx)>8) moved=true;
+  drag.style.transform=`translateX(${dx}px) rotate(${dx/45}deg)`;
+  $("hintKnow").style.opacity   = dx>0 ? Math.min(dx/90,1) : 0;
+  $("hintForget").style.opacity = dx<0 ? Math.min(-dx/90,1) : 0;
+});
+function resetDrag(){ drag.style.transition="transform .25s ease"; drag.style.transform=""; $("hintKnow").style.opacity=0; $("hintForget").style.opacity=0; }
+drag.addEventListener("pointerup", ()=>{
+  if(!down) return; down=false;
+  const d=dx, T=90; resetDrag();
+  if(d>T) doKnow();
+  else if(d<-T) doForget();
+  else if(!moved) toggleFlip();
+});
+drag.addEventListener("pointercancel", ()=>{ down=false; resetDrag(); });
+
+/* ---------- Phát âm ---------- */
+function speakWord(text){
+  try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text); u.lang=lang; u.rate=.9; speechSynthesis.speak(u); }catch(e){}
+}
+$("btnSpeak").addEventListener("click", e=>{ e.stopPropagation(); const c=deck.cards[queue[pos]]; if(c) speakWord(c.front); });
+$("btnImage").addEventListener("click", e=>{ e.stopPropagation(); const c=deck.cards[queue[pos]]; if(c) window.open("https://www.google.com/search?tbm=isch&q="+encodeURIComponent(c.front),"_blank"); });
+
+/* ---------- Cài đặt ---------- */
+function applySettings(){
+  document.documentElement.setAttribute("data-theme", settings.dark?"dark":"light");
+  [...$("segDir").children].forEach(b=> b.classList.toggle("on", b.dataset.v===settings.dir));
+  $("tglAudio").classList.toggle("on", settings.autoAudio);
+  $("tglDark").classList.toggle("on", settings.dark);
+  $("tglWeak").classList.toggle("on", settings.weakFirst);
+}
+$("btnSettings").addEventListener("click", ()=> $("setModal").classList.remove("hidden"));
+$("btnCloseSet").addEventListener("click", ()=> $("setModal").classList.add("hidden"));
+$("segDir").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; settings.dir=b.dataset.v; saveSettings(); applySettings(); render(); });
+$("tglAudio").addEventListener("click", ()=>{ settings.autoAudio=!settings.autoAudio; saveSettings(); applySettings(); });
+$("tglDark").addEventListener("click", ()=>{ settings.dark=!settings.dark; saveSettings(); applySettings(); });
+$("tglWeak").addEventListener("click", ()=>{ settings.weakFirst=!settings.weakFirst; saveSettings(); applySettings(); });
+$("btnResetProg").addEventListener("click", ()=>{
+  if(confirm("Đặt lại toàn bộ độ thuộc của các từ về 0?")){
+    progress={}; store.save(PKEY,progress);
+    $("setModal").classList.add("hidden"); startSession();
+  }
+});
+
+/* ---------- Đóng modal khi chạm nền ---------- */
+document.querySelectorAll(".modal-bg").forEach(bg=> bg.addEventListener("click", e=>{ if(e.target===bg) bg.classList.add("hidden"); }));
+
+/* ---------- Bàn phím ---------- */
+document.addEventListener("keydown", e=>{
+  if($("studyView").classList.contains("hidden")) return;
+  if(e.key===" "){ e.preventDefault(); toggleFlip(); }
+  else if(e.key==="ArrowRight") doNext();
+  else if(e.key==="ArrowLeft") doPrev();
+  else if(e.key==="Enter") doKnow();
+  else if(e.key==="Backspace"){ e.preventDefault(); doForget(); }
+});
+
+/* ---------- Chạy ---------- */
+applySettings();
+renderGroupNav();
+startSession();
+</script>
+</body>
+</html>
